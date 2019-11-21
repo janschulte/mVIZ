@@ -1,12 +1,17 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
 
-@Controller()
+import { AppService } from './app.service';
+import { Dataset, MCloudInterface } from './m-cloud-interface';
+
+@Controller('datasets')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly mCloudService: MCloudInterface,
+  ) { }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getDatasets(): Dataset[] {
+    return this.mCloudService.datasets;
   }
 }
