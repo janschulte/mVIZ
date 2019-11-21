@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.mcloudInterface.getResults().subscribe(res => {
+    this.mcloudInterface.getDatasets().subscribe(res => {
       this.datasets = res;
     });
   }
