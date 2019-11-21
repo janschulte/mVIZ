@@ -23,6 +23,8 @@
     "@nestjs/common": "^6.7.2",
     "@nestjs/core": "^6.7.2",
     "@nestjs/platform-express": "^6.7.2",
+    "express-rate-limit": "^5.0.0",
+    "helmet": "^3.21.2",
     "nodemon": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
