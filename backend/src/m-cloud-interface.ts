@@ -15,7 +15,7 @@ enum Namespaces {
 @Injectable()
 export class MCloudInterface {
 
-    public datasets: Dataset[];
+    private datasets: Dataset[];
 
     constructor(
         private http: HttpService,
@@ -28,6 +28,13 @@ export class MCloudInterface {
             this.datasets = this.parseDatasets(doc);
             console.log(`Parsed ${this.datasets.length} Datasets`);
         });
+    }
+
+    public getDatasets(searchTerm: string): Dataset[] {
+        if (searchTerm) {
+            return this.datasets.filter(e => e.title.indexOf(searchTerm) >= 0 || e.description.indexOf(searchTerm) >= 0);
+        }
+        return this.datasets;
     }
 
     private parseDatasets(doc: Document): Dataset[] {
