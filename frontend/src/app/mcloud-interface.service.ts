@@ -2,16 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Dataset } from '../../../shared/model/dataset';
-
-enum Namespaces {
-  DCAT = 'http://www.w3.org/ns/dcat#',
-  HYDRA = 'http://www.w3.org/ns/hydra/core#',
-  DCTERMS = 'http://purl.org/dc/terms/'
-}
+import { Dataset } from '../../../backend/src/shared/dataset';
 
 @Injectable({ providedIn: 'root' })
-export class McloudInterfaceService {
+export class DatasetInterface {
 
   constructor(
     private http: HttpClient

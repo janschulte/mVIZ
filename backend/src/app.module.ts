@@ -1,11 +1,19 @@
 import { HttpModule, Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
-import { MCloudInterface } from './m-cloud-interface';
+import { DatasetProvider } from './provider/dataset-provider';
+import { FileDatasetProvider } from './provider/file-dataset-provider';
+import { MCloudHarvester } from './provider/m-cloud-harvester';
 
 @Module({
   imports: [HttpModule],
   controllers: [AppController],
-  providers: [MCloudInterface],
+  providers: [
+    {
+      provide: DatasetProvider,
+      useClass: FileDatasetProvider,
+    },
+    MCloudHarvester,
+  ],
 })
 export class AppModule { }

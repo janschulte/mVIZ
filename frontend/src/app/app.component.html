@@ -2,11 +2,13 @@
 
 <div *ngIf="datasets" style="background-color: rgb(238, 238, 238); display: flex; flex-wrap: wrap;">
   <div *ngFor="let ds of datasets" style="padding: 10px;">
-    <mat-card class="example-card" style="width: 400px; height: 300px; overflow: hidden;" (click)="openInMFund(ds.mfundUrl)">
+    <mat-card class="example-card" style="width: 400px; height: 300px; overflow: hidden;"
+      (click)="openInMFund(ds.mfundUrl)">
       <div style="overflow: hidden; height: 100%;">
         <mat-card-header>
           <mat-card-title>{{ds.title}}</mat-card-title>
           <mat-card-subtitle>{{ds.provider}}</mat-card-subtitle>
+          <mat-card-subtitle>{{getTypeList(ds)}}</mat-card-subtitle>
           <mat-card-subtitle>
             <mat-chip-list>
               <mat-chip *ngFor="let kw of ds.keywords">

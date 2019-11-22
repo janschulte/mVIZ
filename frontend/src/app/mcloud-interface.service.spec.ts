@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { McloudInterfaceService } from './mcloud-interface.service';
+import { DatasetInterface } from './mcloud-interface.service';
 
 describe('McloudInterfaceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: McloudInterfaceService = TestBed.get(McloudInterfaceService);
+    const service: DatasetInterface = TestBed.get(DatasetInterface);
     expect(service).toBeTruthy();
   });
 });

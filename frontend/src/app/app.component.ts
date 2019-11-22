@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Dataset } from '../../../shared/model/dataset';
-import { McloudInterfaceService } from './mcloud-interface.service';
+import { Dataset } from '../../../backend/src/shared/dataset';
+import { DatasetInterface } from './mcloud-interface.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public datasets: Dataset[];
 
   constructor(
-    private mcloudInterface: McloudInterfaceService
+    private mcloudInterface: DatasetInterface
   ) { }
 
   ngOnInit(): void {
@@ -28,4 +28,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  public getTypeList(ds: Dataset) {
+    if (ds && ds.distributions) {
+      return ds.distributions.map(e => e.type).join(', ');
+    }
+  }
 }
