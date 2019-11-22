@@ -11,6 +11,7 @@
     "max-line-length": [true, 150],
     "member-ordering": [false],
     "interface-name": [false],
+    "prefer-for-of": false,
     "arrow-parens": false,
     "object-literal-sort-keys": false
   },

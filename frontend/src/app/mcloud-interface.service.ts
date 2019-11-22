@@ -2,18 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { Dataset } from '../../../shared/model/dataset';
+
 enum Namespaces {
   DCAT = 'http://www.w3.org/ns/dcat#',
   HYDRA = 'http://www.w3.org/ns/hydra/core#',
   DCTERMS = 'http://purl.org/dc/terms/'
-}
-
-export interface Dataset {
-  id: string;
-  title: string;
-  description: string;
-  lastModified: Date;
-  keywords: string[];
 }
 
 @Injectable({ providedIn: 'root' })

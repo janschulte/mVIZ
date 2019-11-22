@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Dataset, McloudInterfaceService } from './mcloud-interface.service';
+import { Dataset } from '../../../shared/model/dataset';
+import { McloudInterfaceService } from './mcloud-interface.service';
 
 @Component({
   selector: 'app-root',

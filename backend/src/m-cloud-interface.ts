@@ -1,19 +1,14 @@
 import { HttpService, Injectable } from '@nestjs/common';
 
-const DOMParser = require('xmldom').DOMParser;
+import { Dataset } from '../../shared/model/dataset';
+
+import * as xmldom from 'xmldom';
+// const DOMParser = require('xmldom').DOMParser;
 
 enum Namespaces {
     DCAT = 'http://www.w3.org/ns/dcat#',
     HYDRA = 'http://www.w3.org/ns/hydra/core#',
     DCTERMS = 'http://purl.org/dc/terms/',
-}
-
-export interface Dataset {
-    id: string;
-    title: string;
-    description: string;
-    lastModified: Date;
-    keywords: string[];
 }
 
 @Injectable()
@@ -77,6 +72,6 @@ export class MCloudInterface {
     }
 
     private parseDocument(res: string): Document {
-        return new DOMParser().parseFromString(res, 'text/xml');
+        return new xmldom.DOMParser().parseFromString(res, 'text/xml');
     }
 }

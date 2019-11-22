@@ -1,7 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 
+import { Dataset } from '../../shared/model/dataset';
 import { AppService } from './app.service';
-import { Dataset, MCloudInterface } from './m-cloud-interface';
+import { MCloudInterface } from './m-cloud-interface';
 
 @Controller('datasets')
 export class AppController {
