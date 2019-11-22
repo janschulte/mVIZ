@@ -1,8 +1,9 @@
 import { HttpService, Injectable } from '@nestjs/common';
+import * as xmldom from 'xmldom';
 
 import { Dataset } from '../../shared/model/dataset';
+import { Keyword, KeywordType } from './../../shared/model/dataset';
 
-import * as xmldom from 'xmldom';
 // const DOMParser = require('xmldom').DOMParser;
 
 enum Namespaces {
@@ -55,13 +56,31 @@ export class MCloudInterface {
         };
     }
 
-    private parseKeywords(elem: Element): string[] {
+    private parseKeywords(elem: Element): Keyword[] {
         const keywords = [];
         const keywordElemes = elem.getElementsByTagNameNS(Namespaces.DCAT, 'keyword');
         for (let i = 0; i < keywordElemes.length; i++) {
-            keywords.push(keywordElemes[i].textContent);
+            try {
+                const textContent = keywordElemes[i].textContent;
+                const splitIdx = textContent.indexOf(' ');
+                const type = textContent.substring(0, splitIdx);
+                const label = textContent.substring(splitIdx + 1, textContent.length);
+                keywords.push(this.createKeyword(type, label));
+            } catch (error) {
+                console.error(`Error occured, while creating keyword ${keywordElemes[i]}`);
+            }
         }
         return keywords;
+    }
+
+    createKeyword(type: string, label: string): Keyword {
+        let kwt: KeywordType;
+        kwt = Object.values(KeywordType).find(k => k === type) as KeywordType;
+        if (!kwt) { console.error(`No keyword type found for '${type}'`); }
+        return {
+            type: kwt,
+            label,
+        };
     }
 
     private getTextContent(elem: Element, ns: Namespaces, elemName: string): string {
