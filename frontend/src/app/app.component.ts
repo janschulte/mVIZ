@@ -22,4 +22,10 @@ export class AppComponent implements OnInit {
     });
   }
 
+  public openInMFund(url) {
+    if (url) {
+      window.open(url, '_blank');
+    }
+  }
+
 }

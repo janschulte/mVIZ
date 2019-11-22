@@ -4,12 +4,12 @@ import * as xmldom from 'xmldom';
 import { Dataset } from '../../shared/model/dataset';
 import { Keyword, KeywordType } from './../../shared/model/dataset';
 
-// const DOMParser = require('xmldom').DOMParser;
-
 enum Namespaces {
     DCAT = 'http://www.w3.org/ns/dcat#',
     HYDRA = 'http://www.w3.org/ns/hydra/core#',
     DCTERMS = 'http://purl.org/dc/terms/',
+    FOAF = 'http://xmlns.com/foaf/0.1/',
+    RDF = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
 }
 
 @Injectable()
@@ -45,7 +45,9 @@ export class MCloudInterface {
         const description = this.getTextContent(elem, Namespaces.DCTERMS, 'description');
         const modification = this.getTextContent(elem, Namespaces.DCTERMS, 'modified');
         const lastModified = modification ? new Date(modification) : null;
-
+        const publisher = elem.getElementsByTagNameNS(Namespaces.DCTERMS, 'publisher');
+        const provider = this.getTextContent(publisher[0], Namespaces.FOAF, 'name');
+        const mfundUrl = elem.getAttributeNS(Namespaces.RDF, 'about');
         const keywords = this.parseKeywords(elem);
         return {
             id,
@@ -53,6 +55,8 @@ export class MCloudInterface {
             description,
             lastModified,
             keywords,
+            provider,
+            mfundUrl,
         };
     }
 

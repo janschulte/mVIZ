@@ -6,13 +6,15 @@ export enum KeywordType {
 
 export interface Keyword {
     type: KeywordType;
-    label: string;   
+    label: string;
 }
 
 export interface Dataset {
     id: string;
     title: string;
     description: string;
+    provider: string;
+    mfundUrl: string;
     lastModified: Date;
     keywords: Keyword[];
 }
