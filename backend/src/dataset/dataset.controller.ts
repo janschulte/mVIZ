@@ -1,10 +1,11 @@
-import { Controller, Get, Query, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common';
 
-import { DatasetProvider } from './provider/dataset-provider';
-import { Dataset } from './shared/dataset';
+import { DatasetProvider } from '../provider/dataset-provider';
+import { Dataset } from '../shared/dataset';
 
 @Controller('dataset')
-export class AppController {
+export class DatasetController {
+
   constructor(
     private readonly datasetProvider: DatasetProvider,
   ) { }

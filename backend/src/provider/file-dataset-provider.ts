@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpService } from '@nestjs/common';
 import * as fs from 'fs';
 import { first } from 'rxjs/operators';
 
@@ -14,6 +14,7 @@ export class FileDatasetProvider implements DatasetProvider {
 
     constructor(
         private harvester: MCloudHarvester,
+        private http: HttpService,
     ) {
         console.log(`FileDatasetProvider started`);
         this.initDatasets();
@@ -37,7 +38,8 @@ export class FileDatasetProvider implements DatasetProvider {
     }
 
     public getDataset(id: string): Dataset {
-        return this.datasets.find(e => e.id === id);
+        const dataset = this.datasets.find(e => e.id === id);
+        return dataset;
     }
 
     private initDatasets() {
