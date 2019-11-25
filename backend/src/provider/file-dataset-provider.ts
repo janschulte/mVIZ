@@ -36,6 +36,10 @@ export class FileDatasetProvider implements DatasetProvider {
         return filteredSet;
     }
 
+    public getDataset(id: string): Dataset {
+        return this.datasets.find(e => e.id === id);
+    }
+
     private initDatasets() {
         if (fs.existsSync(FILE_NAME)) {
             console.log(`Load datasets from file`);
