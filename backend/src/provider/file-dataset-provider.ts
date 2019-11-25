@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import { first } from 'rxjs/operators';
 
-import { Dataset } from '../shared/dataset';
+import { Dataset, DistributionType } from '../shared/dataset';
 import { DatasetProvider } from './dataset-provider';
 import { MCloudHarvester } from './m-cloud-harvester';
 
@@ -19,11 +19,21 @@ export class FileDatasetProvider implements DatasetProvider {
         this.initDatasets();
     }
 
-    public getDatasets(searchTerm: string) {
+    public getDatasets(searchTerm: string, distributionTypes: DistributionType[]) {
+        let filteredSet = this.datasets;
         if (searchTerm) {
-            return this.datasets.filter(e => e.title.indexOf(searchTerm) >= 0 || e.description.indexOf(searchTerm) >= 0);
+            filteredSet = filteredSet.filter(e => e.title.indexOf(searchTerm) >= 0 || e.description.indexOf(searchTerm) >= 0);
         }
-        return this.datasets;
+        if (distributionTypes && distributionTypes.length > 0) {
+            filteredSet = filteredSet.filter(e => {
+                const match = e.distributions.find(d => {
+                    const idx = distributionTypes.indexOf(d.type);
+                    return idx >= 0;
+                });
+                return !!match;
+            });
+        }
+        return filteredSet;
     }
 
     private initDatasets() {

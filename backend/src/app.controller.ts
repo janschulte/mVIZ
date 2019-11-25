@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 
-import { Dataset } from './shared/dataset';
 import { DatasetProvider } from './provider/dataset-provider';
+import { Dataset } from './shared/dataset';
 
 @Controller('datasets')
 export class AppController {
@@ -10,7 +10,8 @@ export class AppController {
   ) { }
 
   @Get()
-  getDatasets(@Query('searchTerm') searchTerm): Dataset[] {
-    return this.datasetProvider.getDatasets(searchTerm);
+  getDatasets(@Query('searchTerm') searchTerm, @Query('distributionType') distributionTypes): Dataset[] {
+    const distTypes = distributionTypes ? distributionTypes.split(',') : [];
+    return this.datasetProvider.getDatasets(searchTerm, distTypes);
   }
 }
