@@ -1,0 +1,8 @@
+<div *ngIf="dataset">
+  <h1>{{dataset.title}}</h1>
+  <p>{{dataset.description}}</p>
+
+  <div *ngFor="let distribution of dataset.distributions">
+      <app-ascertain-visualization [distribution]="distribution"></app-ascertain-visualization>
+  </div>
+</div>

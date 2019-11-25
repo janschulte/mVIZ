@@ -1,0 +1,22 @@
+<mat-progress-bar *ngIf="loading" mode="query" color="warn"></mat-progress-bar>
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>
+    <div class="side-nav-wrapper">
+      <mat-form-field class="example-full-width">
+        <input matInput type="search" placeholder="Searchterm" [(ngModel)]="searchTerm">
+        <button mat-icon-button matSuffix (click)="search()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+      <div *ngIf="datasets">
+        {{datasets.length}} Results found
+      </div>
+      <app-distribution-facet></app-distribution-facet>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <app-search-result-list [datasets]="datasets"></app-search-result-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,28 @@
+<div *ngIf="datasets" style="display: flex; flex-wrap: wrap;">
+  <div *ngFor="let ds of datasets" style="padding: 10px;">
+    <mat-card class="example-card" style="width: 400px; height: 300px; overflow: hidden;">
+      <div style="overflow: hidden; height: 100%;">
+        <mat-card-header>
+          <mat-card-title>{{ds.title}}</mat-card-title>
+          <mat-card-subtitle>{{ds.provider}}</mat-card-subtitle>
+          <mat-card-subtitle>{{getTypeList(ds)}}</mat-card-subtitle>
+          <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip *ngFor="let kw of ds.keywords">
+                {{kw.label}}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+
+        </mat-card-header>
+        <mat-card-content>
+          <p> {{ds.description}} </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="openInMFund(ds.mfundUrl)">mCloud</button>
+          <button mat-button (click)="showDetails(ds.id)">Details</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>

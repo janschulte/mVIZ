@@ -1,0 +1,14 @@
+<div *ngIf="distribution.label">{{distribution.label}}</div>
+<div *ngIf="distribution.accessURL">{{distribution.accessURL}}</div>
+
+<span [ngSwitch]="distribution.type">
+  <p *ngSwitchCase="'GEOJSON'">
+    <app-geojson-map [distribution]="distribution"></app-geojson-map>
+  </p>
+  <p *ngSwitchCase="'CSV'">
+    CSV
+  </p>
+  <p *ngSwitchDefault>
+    Not available...
+  </p>
+</span>

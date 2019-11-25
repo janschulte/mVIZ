@@ -1,7 +1,24 @@
+import { DetailsComponent } from './views/details/details.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { SearchComponent } from './views/search/search.component';
+
+const routes: Routes = [
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'search'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

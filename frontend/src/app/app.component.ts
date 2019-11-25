@@ -1,36 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Dataset } from '../../../backend/src/shared/dataset';
-import { DatasetInterface } from './mcloud-interface.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  public datasets: Dataset[];
+  constructor() { }
 
-  constructor(
-    private mcloudInterface: DatasetInterface
-  ) { }
-
-  ngOnInit(): void {
-    this.mcloudInterface.getDatasets().subscribe(res => {
-      this.datasets = res;
-    });
-  }
-
-  public openInMFund(url) {
-    if (url) {
-      window.open(url, '_blank');
-    }
-  }
-
-  public getTypeList(ds: Dataset) {
-    if (ds && ds.distributions) {
-      return ds.distributions.map(e => e.type).join(', ');
-    }
-  }
 }

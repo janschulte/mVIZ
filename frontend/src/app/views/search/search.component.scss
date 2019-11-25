@@ -1,0 +1,19 @@
+:host {
+
+    .container {
+        position: absolute;
+        top: 68px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #eee;
+    }
+
+    .side-nav-wrapper {
+        padding: 10px;
+    }
+
+    .content-wrapper {
+        height: 100%;
+    }
+}
