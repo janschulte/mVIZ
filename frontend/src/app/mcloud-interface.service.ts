@@ -16,7 +16,9 @@ export class DatasetInterface {
 
   public getDatasets(searchTerm: string = '', distributionTypes: DistributionType[] = []): Observable<Dataset[]> {
     let params: HttpParams = new HttpParams();
-    params = params.set('searchTerm', searchTerm);
+    if (searchTerm) {
+      params = params.set('searchTerm', searchTerm);
+    }
     if (distributionTypes && distributionTypes.length > 0) {
       params = params.set('distributionType', distributionTypes.join(','));
     }

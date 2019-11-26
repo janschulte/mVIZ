@@ -11,9 +11,7 @@ export class ProxyController {
 
     @Get()
     proxy(@Query('url') url): Observable<any> {
-        return this.http.get(url).pipe(map(res => {
-            return res.data;
-        }));
+        return this.http.get(url).pipe(map(res => res.data));
     }
 
 }

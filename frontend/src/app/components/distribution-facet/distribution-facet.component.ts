@@ -20,6 +20,10 @@ export class DistributionFacetComponent implements OnInit {
     type: DistributionType.GEOJSON,
     label: 'GeoJSON',
     selected: false
+  }, {
+    type: DistributionType.UNKNOWN,
+    label: 'Unbekannt',
+    selected: false
   }];
 
   constructor(
@@ -35,8 +39,9 @@ export class DistributionFacetComponent implements OnInit {
     });
   }
 
-  public triggerSearch(dt: DistributionType, selected: boolean) {
-    this.search.setDistributionType(dt, selected);
+  public triggerSearch(facet: DistributionFacet, selected: boolean) {
+    facet.selected = selected;
+    this.search.setDistributionType(facet.type, selected);
   }
 
 }

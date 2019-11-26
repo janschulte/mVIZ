@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { OlMapService } from '@helgoland/open-layers';
 import { Map as OlMap } from 'ol';
 import { click } from 'ol/events/condition';
@@ -17,11 +18,13 @@ import { HttpProxyService } from './../../../http-proxy.service';
   templateUrl: './geojson-map.component.html',
   styleUrls: ['./geojson-map.component.scss']
 })
-export class GeojsonMapComponent implements OnInit {
+export class GeojsonMapComponent {
 
   @Input() distribution: Distribution;
 
   public geojson: Layer;
+
+  public show: boolean;
 
   public mapId = 'geojson';
 
@@ -29,29 +32,34 @@ export class GeojsonMapComponent implements OnInit {
 
   constructor(
     private proxy: HttpProxyService,
-    private mapService: OlMapService
+    private mapService: OlMapService,
+    private snackBar: MatSnackBar
   ) { }
 
-  ngOnInit() {
-
+  private loadLayer() {
     this.proxy.get(this.distribution.accessURL).subscribe(res => {
-
       const vectorSource = new VectorSource({
         features: (new GeoJSON()).readFeatures(res)
       });
-
       this.geojson = new VectorLayer({
         source: vectorSource,
         style: feature => this.styleFunction()
       });
-
       this.mapService.getMap(this.mapId).subscribe(map => {
         const extent = vectorSource.getExtent();
         map.getView().fit(extent);
-
         this.createClickInteraction(map);
       });
+    }, error => {
+      console.error(error);
+      const message = error.error && error.error.text ? error.error.text : JSON.stringify(error);
+      this.snackBar.open(message, null, { duration: 5000 });
     });
+  }
+
+  public showGeojson() {
+    this.show = !this.show;
+    if (this.show) { this.loadLayer(); }
   }
 
   private createClickInteraction(map: OlMap) {
@@ -67,7 +75,7 @@ export class GeojsonMapComponent implements OnInit {
         for (const key in props) {
           if (props.hasOwnProperty(key)) {
             const element = props[key];
-            if (typeof(element) === 'string')  {
+            if (typeof (element) === 'string') {
               this.properties.set(key, element);
             }
           }
