@@ -1,4 +1,4 @@
-import { Injectable, HttpService } from '@nestjs/common';
+import { HttpService, Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import { first } from 'rxjs/operators';
 
@@ -23,7 +23,10 @@ export class FileDatasetProvider implements DatasetProvider {
     public getDatasets(searchTerm: string, distributionTypes: DistributionType[]) {
         let filteredSet = this.datasets;
         if (searchTerm) {
-            filteredSet = filteredSet.filter(e => e.title.indexOf(searchTerm) >= 0 || e.description.indexOf(searchTerm) >= 0);
+            filteredSet = filteredSet.filter(
+                e => e.title.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) >= 0
+                    || e.description.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) >= 0,
+            );
         }
         if (distributionTypes && distributionTypes.length > 0) {
             filteredSet = filteredSet.filter(e => {
