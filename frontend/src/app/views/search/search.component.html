@@ -3,7 +3,7 @@
   <mat-sidenav mode="side" opened>
     <div class="side-nav-wrapper">
       <mat-form-field class="example-full-width">
-        <input matInput type="search" placeholder="Searchterm" [(ngModel)]="searchTerm">
+        <input matInput type="search" (keydown.enter)="search()" placeholder="Searchterm" [(ngModel)]="searchTerm">
         <button mat-icon-button matSuffix (click)="search()">
           <mat-icon>search</mat-icon>
         </button>
