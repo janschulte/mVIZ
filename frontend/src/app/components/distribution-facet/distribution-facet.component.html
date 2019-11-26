@@ -1,1 +1,5 @@
-<p>distribution-facet works!</p>
+<div *ngFor="let item of facets">
+  <mat-checkbox [ngModel]="item.selected" (ngModelChange)="triggerSearch(item.type, $event)">
+    {{item.label}}
+  </mat-checkbox>
+</div>

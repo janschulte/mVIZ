@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DistributionType } from './../../../../../backend/src/shared/dataset';
+import { SearchService } from './../../views/search/search.service';
+
+interface DistributionFacet {
+  type: DistributionType;
+  label: string;
+  selected: boolean;
+}
+
 @Component({
   selector: 'app-distribution-facet',
   templateUrl: './distribution-facet.component.html',
@@ -7,9 +16,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistributionFacetComponent implements OnInit {
 
-  constructor() { }
+  public facets: DistributionFacet[] = [{
+    type: DistributionType.GEOJSON,
+    label: 'GeoJSON',
+    selected: false
+  }];
 
-  ngOnInit() {
+  constructor(
+    private search: SearchService
+  ) { }
+
+  public ngOnInit() {
+    this.search.onDistributionTypesChanged.subscribe(dt => {
+      dt.forEach(e => {
+        const match = this.facets.find(f => f.type === e);
+        if (match) { match.selected = true; }
+      });
+    });
+  }
+
+  public triggerSearch(dt: DistributionType, selected: boolean) {
+    this.search.setDistributionType(dt, selected);
   }
 
 }

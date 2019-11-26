@@ -11,10 +11,12 @@
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
-      <mat-progress-bar *ngIf="loading" mode="indeterminate" color="warn"></mat-progress-bar>
-      <div *ngIf="datasets && !loading">
+      <p *ngIf="loading">
+        <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+      </p>
+      <p *ngIf="datasets && !loading">
         {{datasets.length}} Ergebnis gefunden
-      </div>
+      </p>
       <app-distribution-facet></app-distribution-facet>
     </div>
   </mat-sidenav>

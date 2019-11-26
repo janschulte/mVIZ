@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Dataset } from '../../../../../backend/src/shared/dataset';
-import { DistributionType } from './../../../../../backend/src/shared/dataset';
 import { SearchService } from './search.service';
 
 @Component({
@@ -17,18 +16,14 @@ export class SearchComponent implements OnInit {
 
   public searchTerm = '';
 
-  public distributionTypes: DistributionType[] = [DistributionType.GEOJSON];
-
   constructor(
     private search: SearchService
   ) { }
 
   public ngOnInit() {
-    this.search.onResultsChanged.subscribe(res => this.datasets = res);
-    this.search.onLoading.subscribe(loading => {
-      console.log(loading);
-      this.loading = loading;
-    });
+    this.search.onResultsChanged.subscribe(ds => this.datasets = ds);
+    this.search.onLoading.subscribe(l => this.loading = l);
+    this.search.onSearchTermChanged.subscribe(st => this.searchTerm = st);
   }
 
   public clearSearchTerm() {

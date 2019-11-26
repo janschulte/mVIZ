@@ -17,7 +17,9 @@ export class DatasetInterface {
   public getDatasets(searchTerm: string = '', distributionTypes: DistributionType[] = []): Observable<Dataset[]> {
     let params: HttpParams = new HttpParams();
     params = params.set('searchTerm', searchTerm);
-    params = params.set('distributionType', distributionTypes.join(','));
+    if (distributionTypes && distributionTypes.length > 0) {
+      params = params.set('distributionType', distributionTypes.join(','));
+    }
     return this.http.get<Dataset[]>(`${mcloudUrl}dataset`, { params });
   }
 
