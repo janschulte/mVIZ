@@ -1,1 +1,14 @@
-<p>geojson-map works!</p>
+<div style="width: 800px; height: 500px;">
+  <n52-ol-map [mapId]="mapId" [showZoomControl]="false" [projection]="'EPSG:4326'" [showAttributionControl]="false">
+    <n52-ol-layer [layer]="geojson"></n52-ol-layer>
+    <n52-ol-mouse-position [projection]="'EPSG:4326'"></n52-ol-mouse-position>
+  </n52-ol-map>
+</div>
+<div>
+  <table>
+    <tr *ngFor="let item of properties | keyvalue">
+      <td>{{item.key}}</td>
+      <td>{{item.value}}</td>
+    </tr>
+  </table>
+</div>

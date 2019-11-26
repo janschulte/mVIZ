@@ -12,15 +12,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HelgolandOpenLayersModule } from '@helgoland/open-layers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AscertainVisualizationComponent } from './components/ascertain-visualization/ascertain-visualization.component';
 import { DistributionFacetComponent } from './components/distribution-facet/distribution-facet.component';
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
+import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
-import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { GeojsonMapComponent } from './components/visualizations/geojson-map/geo
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    HelgolandOpenLayersModule,
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
