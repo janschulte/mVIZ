@@ -1,15 +1,19 @@
-<mat-progress-bar *ngIf="loading" mode="query" color="warn"></mat-progress-bar>
 <mat-sidenav-container class="container">
   <mat-sidenav mode="side" opened>
     <div class="side-nav-wrapper">
       <mat-form-field class="example-full-width">
-        <input matInput type="search" (keydown.enter)="search()" placeholder="Searchterm" [(ngModel)]="searchTerm">
-        <button mat-icon-button matSuffix (click)="search()">
+        <input matInput type="search" (keydown.enter)="triggerSearch()" placeholder="Suchbegriff"
+          [(ngModel)]="searchTerm">
+        <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchTerm()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-icon-button matSuffix (click)="triggerSearch()">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
-      <div *ngIf="datasets">
-        {{datasets.length}} Results found
+      <mat-progress-bar *ngIf="loading" mode="indeterminate" color="warn"></mat-progress-bar>
+      <div *ngIf="datasets && !loading">
+        {{datasets.length}} Ergebnis gefunden
       </div>
       <app-distribution-facet></app-distribution-facet>
     </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Dataset } from '../../../../../backend/src/shared/dataset';
-import { DatasetInterface } from '../../mcloud-interface.service';
 import { DistributionType } from './../../../../../backend/src/shared/dataset';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-search',
@@ -20,17 +20,24 @@ export class SearchComponent implements OnInit {
   public distributionTypes: DistributionType[] = [DistributionType.GEOJSON];
 
   constructor(
-    private mcloudInterface: DatasetInterface
+    private search: SearchService
   ) { }
 
-  ngOnInit() { }
+  public ngOnInit() {
+    this.search.onResultsChanged.subscribe(res => this.datasets = res);
+    this.search.onLoading.subscribe(loading => {
+      console.log(loading);
+      this.loading = loading;
+    });
+  }
 
-  public search() {
-    this.loading = true;
-    this.mcloudInterface.getDatasets(this.searchTerm, this.distributionTypes).subscribe(
-      res => { this.datasets = res; },
-      error => { },
-      () => this.loading = false);
+  public clearSearchTerm() {
+    this.searchTerm = '';
+    this.triggerSearch();
+  }
+
+  public triggerSearch() {
+    this.search.setSearchTerm(this.searchTerm);
   }
 
 }
