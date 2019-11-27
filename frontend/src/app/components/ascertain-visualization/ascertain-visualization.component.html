@@ -6,6 +6,9 @@
     <div *ngSwitchCase="'GEOJSON'">
       <app-geojson-map [distribution]="distribution"></app-geojson-map>
     </div>
+    <div *ngSwitchCase="'WMS'">
+      <app-wms-map [distribution]="distribution"></app-wms-map>
+    </div>
     <span *ngSwitchDefault>
       Not available...
     </span>

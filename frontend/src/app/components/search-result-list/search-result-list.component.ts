@@ -22,8 +22,12 @@ export class SearchResultListComponent {
     }
   }
 
-  public showDetails(id: string) {
-    this.router.navigate([`/details/${id}`]);
+  public showDetails(id: string, newTab: boolean) {
+    if (newTab) {
+      window.open(`/details/${id}`, '_blank');
+    } else {
+      this.router.navigate([`/details/${id}`]);
+    }
   }
 
   public getTypeList(ds: Dataset) {

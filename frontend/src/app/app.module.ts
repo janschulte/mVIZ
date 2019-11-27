@@ -13,8 +13,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTreeModule } from '@angular/material/tree';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandOpenLayersModule } from '@helgoland/open-layers';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +25,7 @@ import { AscertainVisualizationComponent } from './components/ascertain-visualiz
 import { DistributionFacetComponent } from './components/distribution-facet/distribution-facet.component';
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
+import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
 
@@ -35,6 +38,7 @@ import { SearchComponent } from './views/search/search.component';
     GeojsonMapComponent,
     SearchComponent,
     SearchResultListComponent,
+    WmsMapComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,10 +46,10 @@ import { SearchComponent } from './views/search/search.component';
     BrowserModule,
     FlexLayoutModule,
     FormsModule,
+    HelgolandCoreModule,
     HelgolandOpenLayersModule,
     HttpClientModule,
     MatButtonModule,
-    MatSnackBarModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -54,7 +58,9 @@ import { SearchComponent } from './views/search/search.component';
     MatInputModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatSnackBarModule,
     MatToolbarModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

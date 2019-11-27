@@ -14,7 +14,7 @@
     </mat-card-header>
     <mat-card-actions>
       <button mat-button (click)="openInMFund(ds.mfundUrl)">Show in mCloud</button>
-      <button mat-button (click)="showDetails(ds.id)">Show the details</button>
+      <button mat-button (click)="showDetails(ds.id)" (auxclick)="showDetails(ds.id, true)">Show the details</button>
     </mat-card-actions>
   </mat-card>
 </div>

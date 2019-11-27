@@ -1,0 +1,36 @@
+<div>
+  <button mat-stroked-button (click)="showMap()">Show map</button>
+</div>
+<div class="content" *ngIf="show">
+  <div class="map">
+    <n52-ol-map [mapId]="mapId" [showZoomControl]="false" [lon]="10.5" [lat]="51.2" [zoom]="6" [projection]="projection"
+      [showAttributionControl]="false">
+      <n52-ol-mouse-position [projection]="projection"></n52-ol-mouse-position>
+    </n52-ol-map>
+    <mat-progress-bar *ngIf="progress != 100" mode="determinate" [value]="progress" color="warn"> </mat-progress-bar>
+  </div>
+
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+      <li class="mat-tree-node">
+        <button mat-icon-button disabled></button>
+        <mat-checkbox (change)="toggleLayer(node, $event.checked)">{{node.title}}</mat-checkbox>
+      </li>
+    </mat-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.title}}
+        </div>
+        <ul [class.tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+        </ul>
+      </li>
+    </mat-nested-tree-node>
+  </mat-tree>
+</div>

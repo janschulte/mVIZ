@@ -16,15 +16,21 @@ interface DistributionFacet {
 })
 export class DistributionFacetComponent implements OnInit {
 
-  public facets: DistributionFacet[] = [{
-    type: DistributionType.GEOJSON,
-    label: 'GeoJSON',
-    selected: false
-  }, {
-    type: DistributionType.UNKNOWN,
-    label: 'Unbekannt',
-    selected: false
-  }];
+  public facets: DistributionFacet[] = [
+    {
+      type: DistributionType.GEOJSON,
+      label: 'GeoJSON',
+      selected: false
+    }, {
+      type: DistributionType.WMS,
+      label: 'WMS',
+      selected: false
+    }, {
+      type: DistributionType.UNKNOWN,
+      label: 'Unbekannt',
+      selected: false
+    }
+  ];
 
   constructor(
     private search: SearchService

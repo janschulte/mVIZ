@@ -1,0 +1,48 @@
+:host {
+
+    $height: 500px;
+
+    .content {
+        display: flex;
+
+        .map {
+            width: 800px;
+            height: $height;
+            flex: 0 0 800px;
+            position: relative;
+
+            .mat-progress-bar {
+                position: absolute;
+                bottom: 0;
+            }
+
+            ::ng-deep {
+                .ol-mouse-position {
+                    color: black;
+                }
+            }
+        }
+
+        .mat-tree {
+            width: 100%;
+            margin-left: 10px;
+            max-height: $height;
+            overflow: auto;
+
+            ul,
+            li {
+                margin-top: 0;
+                margin-bottom: 0;
+                list-style-type: none;
+            }
+
+            .mat-tree-node {
+                min-height: 40px;
+            }
+
+            .tree-invisible {
+                display: none;
+            }
+        }
+    }
+}

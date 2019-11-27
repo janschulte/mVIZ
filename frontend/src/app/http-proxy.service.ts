@@ -14,7 +14,11 @@ export class HttpProxyService {
   ) { }
 
   public get(url: string): Observable<any> {
-    return this.http.get(`${mcloudUrl}proxy?url=${url}`);
+    return this.http.get(this.proxyfyUrl(url));
+  }
+
+  public proxyfyUrl(url: string): string {
+    return `https://cors-anywhere.herokuapp.com/${url}`;
   }
 
 }

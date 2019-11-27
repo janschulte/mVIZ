@@ -36,6 +36,11 @@ export class GeojsonMapComponent {
     private snackBar: MatSnackBar
   ) { }
 
+  public showGeojson() {
+    this.show = !this.show;
+    if (this.show) { this.loadLayer(); }
+  }
+
   private loadLayer() {
     this.proxy.get(this.distribution.accessURL).subscribe(res => {
       const vectorSource = new VectorSource({
@@ -55,11 +60,6 @@ export class GeojsonMapComponent {
       const message = error.error && error.error.text ? error.error.text : JSON.stringify(error);
       this.snackBar.open(message, null, { duration: 5000 });
     });
-  }
-
-  public showGeojson() {
-    this.show = !this.show;
-    if (this.show) { this.loadLayer(); }
   }
 
   private createClickInteraction(map: OlMap) {
