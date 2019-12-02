@@ -42,9 +42,7 @@ export class WmsMapComponent implements OnInit {
     private proxy: HttpProxyService
   ) { }
 
-  ngOnInit(): void {
-    this.showMap();
-  }
+  ngOnInit(): void { }
 
   hasChild = (_: number, node: WMSLayer) => {
     return !!node.childLayer && node.childLayer.length > 0;
