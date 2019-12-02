@@ -20,4 +20,4 @@ additional information can be found [here](./backend/)
 $ npm install
 $ ng serve
 ```
-- additional information can be found [here](./frontend/)
+additional information can be found [here](./frontend/)
