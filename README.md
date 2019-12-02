@@ -2,14 +2,22 @@
 
 ## Project information
 
-[https://mviz.geo.tu-dresden.de/]
+https://mviz.geo.tu-dresden.de/
 
 ## Development
 
 ### Start backend service
 
-- run `npm start`
+```bash
+$ npm install
+$ npm start
+```
+additional information can be found [here](./backend/)
 
 ### Start frontend application
 
-- run `ng serve`
+```bash
+$ npm install
+$ ng serve
+```
+- additional information can be found [here](./frontend/)
