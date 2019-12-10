@@ -25,6 +25,7 @@ import { AscertainVisualizationComponent } from './components/ascertain-visualiz
 import { DistributionFacetComponent } from './components/distribution-facet/distribution-facet.component';
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
+import { UnityMapComponent } from './components/visualizations/unity-map/unity-map.component';
 import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
@@ -39,6 +40,7 @@ import { SearchComponent } from './views/search/search.component';
     SearchComponent,
     SearchResultListComponent,
     WmsMapComponent,
+    UnityMapComponent,
   ],
   imports: [
     AppRoutingModule,
