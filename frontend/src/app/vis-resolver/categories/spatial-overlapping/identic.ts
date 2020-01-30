@@ -14,7 +14,7 @@ export class Identic implements CategoryEntry {
     ProportionalPictorialSymbol = 0;
     FlowMap = 0;
     RingMaps = 1;
-    LineMap = 0;
+    LineMap = 1;
     PointMap = 0;
     DotDensityMap = 0;
     Heatmap = 0;

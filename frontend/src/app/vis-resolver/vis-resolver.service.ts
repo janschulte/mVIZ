@@ -1,10 +1,15 @@
+import { DimensionCG } from './categories/dimension/group';
+import { TimeSequenceCG } from './categories/time-sequence/group';
+import { TimeModelCG } from './categories/time-model/group';
+import { FocusCG } from './categories/focus/group';
 import { Injectable } from '@angular/core';
 
-import { GeometryType } from './categories/geometrie-typ/group';
-import { LevelOfMeasurement } from './categories/level-of-measurement/group';
-import { SpatialOverlappingOfThemes } from './categories/spatial-overlapping/group';
-import { ThematicVariable } from './categories/thematic-variables/group';
-import { TimeOverlappingOfThemes } from './categories/time-overlapping/group';
+import { GeometryTypeCG } from './categories/geometrie-typ/group';
+import { LevelOfMeasurementCG } from './categories/level-of-measurement/group';
+import { SpatialOverlappingOfThemesCG } from './categories/spatial-overlapping/group';
+import { ThematicVariableCG } from './categories/thematic-variables/group';
+import { TimeOverlappingOfThemesCG } from './categories/time-overlapping/group';
+import { TimePrimitiveCG } from './categories/time-primitive/group';
 import { CategoryGroup, Visualisation, VisualisationKey, VisualisationLabel } from './model';
 
 @Injectable({
@@ -17,11 +22,16 @@ export class VisResolverService {
   public calculatedVisualisations: Visualisation[] = [];
 
   constructor() {
-    this.groups.push(new ThematicVariable());
-    this.groups.push(new TimeOverlappingOfThemes());
-    this.groups.push(new SpatialOverlappingOfThemes());
-    this.groups.push(new LevelOfMeasurement());
-    this.groups.push(new GeometryType());
+    this.groups.push(new ThematicVariableCG());
+    this.groups.push(new TimeOverlappingOfThemesCG());
+    this.groups.push(new SpatialOverlappingOfThemesCG());
+    this.groups.push(new LevelOfMeasurementCG());
+    this.groups.push(new GeometryTypeCG());
+    this.groups.push(new FocusCG());
+    this.groups.push(new TimePrimitiveCG());
+    this.groups.push(new TimeModelCG());
+    this.groups.push(new TimeSequenceCG());
+    this.groups.push(new DimensionCG());
 
     for (const key in VisualisationKey) {
       if (key) {

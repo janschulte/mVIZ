@@ -83,7 +83,7 @@ export enum VisualisationLabel {
     HeatPointMap = 'Heat Point Map / Clustermap',
     ConnectionMap = 'Connection Map',
     Choropleth = 'Choropleth',
-    HeatMapAdditionalMap = 'Heatmap (plut Karte)',
+    HeatMapAdditionalMap = 'Heatmap (plus Karte)',
     LineGraph = 'Linegraph',
     Scatterplot = 'Scatterplot',
     Barchart = 'Barchart',

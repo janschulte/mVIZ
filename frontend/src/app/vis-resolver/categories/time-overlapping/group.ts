@@ -4,11 +4,11 @@ import { Identic } from './identic';
 import { Overlapping } from './overlapping';
 import { Seperated } from './seperated';
 
-export class TimeOverlappingOfThemes implements CategoryGroup {
+export class TimeOverlappingOfThemesCG implements CategoryGroup {
 
     label = 'Zeitliche Überlagerung verschiedener Themen';
 
-    description = 'Werte unterschiedlicher Variablen zu x Zeitpunkten können innerhalb derselben Visualisierung dargestellt werden. Nutzerinteraktion „wie viele Variablen sollen gleichzeitig visualisiert werden“ hat hier Einfluss.';
+    description = 'Werte unterschiedlicher Variablen zu x Zeitpunkten können innerhalb derselben Visualisierung dargestellt werden.';
 
     multi = true;
 

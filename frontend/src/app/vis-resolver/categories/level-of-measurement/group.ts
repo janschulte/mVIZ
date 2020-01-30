@@ -3,7 +3,7 @@ import { Nominal } from './nominal';
 import { Ordinal } from './ordinal';
 import { RatioInterval } from './ratioInterval';
 
-export class LevelOfMeasurement implements CategoryGroup {
+export class LevelOfMeasurementCG implements CategoryGroup {
 
     label = 'Skalenniveau';
 

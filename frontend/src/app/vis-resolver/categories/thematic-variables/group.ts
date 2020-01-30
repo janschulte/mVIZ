@@ -4,7 +4,7 @@ import { Ts0 } from './ts0';
 import { Ts1 } from './ts1';
 import { TsM } from './tsm';
 
-export class ThematicVariable implements CategoryGroup {
+export class ThematicVariableCG implements CategoryGroup {
 
     label = 'Anzahl thematische Variablen';
 

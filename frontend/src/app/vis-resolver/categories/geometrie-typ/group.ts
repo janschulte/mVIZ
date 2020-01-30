@@ -6,7 +6,7 @@ import { Polygon } from './polygon';
 import { Trajectory } from './trajectory';
 import { Volume } from './volume';
 
-export class GeometryType implements CategoryGroup {
+export class GeometryTypeCG implements CategoryGroup {
 
     label = 'Geometrietyp';
 
