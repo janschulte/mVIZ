@@ -1,0 +1,25 @@
+<h3>{{group.label}}</h3>
+<div>{{group.description}}</div>
+
+<!-- multi select -->
+<div *ngIf="group.multi" class="category-checkbox-group">
+  <div *ngFor="let e of group.categoryEntriesSelection">
+    <mat-checkbox class="category-checkbox" [(ngModel)]="e.selected" (change)="changed()">
+      <span class="label">{{e.entry.label}}</span>
+    </mat-checkbox>
+    <div class="description">{{e.entry.description}}</div>
+  </div>
+</div>
+
+<!-- single select -->
+<div *ngIf="!group.multi">
+  <mat-radio-group (change)="singelSelectionChanged($event.value)">
+    <div *ngFor="let e of group.categoryEntriesSelection" class="category-radio-group">
+      <mat-radio-button class="category-radio-button"
+        [value]="e.entry.label">
+        <span class="label">{{e.entry.label}}</span>
+      </mat-radio-button>
+      <span class="description">{{e.entry.description}}</span>
+    </div>
+  </mat-radio-group>
+</div>

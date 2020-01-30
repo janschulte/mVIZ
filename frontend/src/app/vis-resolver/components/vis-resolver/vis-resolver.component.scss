@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: row;
+
+    .category-selection,
+    .visualisation-results {
+        padding: 20px;
+        width: 50%;
+        flex: 1 1 50%;
+    }
+
+    .visualisation-results {
+        .visualistion-entry {
+            margin: 5px;
+        }
+    }
+}

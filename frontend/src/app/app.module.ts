@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,7 +28,11 @@ import { SearchResultListComponent } from './components/search-result-list/searc
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
 import { DetailsComponent } from './views/details/details.component';
+import { SandboxComponent } from './views/sandbox/sandbox.component';
 import { SearchComponent } from './views/search/search.component';
+import { CategoryGroupComponent } from './vis-resolver/components/category-group/category-group.component';
+import { VisResolverComponent } from './vis-resolver/components/vis-resolver/vis-resolver.component';
+import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import { SearchComponent } from './views/search/search.component';
     SearchComponent,
     SearchResultListComponent,
     WmsMapComponent,
+    SandboxComponent,
+    CategoryGroupComponent,
+    VisResolverComponent,
+    ScorePipePipe,
   ],
   imports: [
     AppRoutingModule,
@@ -57,6 +66,7 @@ import { SearchComponent } from './views/search/search.component';
     MatIconModule,
     MatInputModule,
     MatProgressBarModule,
+    MatRadioModule,
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,

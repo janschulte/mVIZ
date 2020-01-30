@@ -1,0 +1,14 @@
+<div class="category-selection">
+  <div *ngFor="let group of groups">
+    <app-category-group [group]="group"></app-category-group>
+  </div>
+  <!-- <pre>{{groups | json: 2}}</pre> -->
+</div>
+
+<div class="visualisation-results">
+  <div *ngFor="let vis of visualisations | scorePipe">
+    <div *ngIf="vis.score > 0" class="visualistion-entry">
+      {{vis.label}} - {{vis.score}}
+    </div>
+  </div>
+</div>
