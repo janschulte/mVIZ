@@ -5,10 +5,11 @@ import { DatasetProvider } from './provider/dataset-provider';
 import { FileDatasetProvider } from './provider/file-dataset-provider';
 import { MCloudHarvester } from './provider/m-cloud-harvester';
 import { ProxyController } from './proxy/proxy.controller';
+import { InfoController } from './info/info.controller';
 
 @Module({
   imports: [HttpModule],
-  controllers: [DatasetController, ProxyController],
+  controllers: [DatasetController, ProxyController, InfoController],
   providers: [
     {
       provide: DatasetProvider,

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Dataset } from '../../../backend/src/shared/dataset';
 import { DistributionType } from './../../../backend/src/shared/dataset';
+import { Info } from './../../../backend/src/shared/info';
 
 const mcloudUrl = 'http://localhost:3000/';
 
@@ -27,5 +28,9 @@ export class DatasetInterface {
 
   public getDataset(id: string): Observable<Dataset> {
     return this.http.get<Dataset>(`${mcloudUrl}dataset/${id}`);
+  }
+
+  public getInfo(): Observable<Info> {
+    return this.http.get<Info>(`${mcloudUrl}info`);
   }
 }

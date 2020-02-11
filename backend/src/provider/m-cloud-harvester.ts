@@ -23,7 +23,6 @@ export class MCloudHarvester {
     ) { }
 
     public getDatasets(): Observable<Dataset[]> {
-        console.log(`${this.constructor.name} started...`);
         return this.http.get(`${MCLOUD_URL}?page=1&pageSize=${DATASET_COUNT}`).pipe(map(res => {
             const doc = this.parseDocument(res.data);
             const datasets = this.parseDatasets(doc);

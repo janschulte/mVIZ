@@ -33,6 +33,7 @@ import { SearchComponent } from './views/search/search.component';
 import { CategoryGroupComponent } from './vis-resolver/components/category-group/category-group.component';
 import { VisResolverComponent } from './vis-resolver/components/vis-resolver/vis-resolver.component';
 import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
+import { LastUpdateTimeComponent } from './components/last-update-time/last-update-time.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
     CategoryGroupComponent,
     VisResolverComponent,
     ScorePipePipe,
+    LastUpdateTimeComponent,
   ],
   imports: [
     AppRoutingModule,
