@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  frontend:
+    build: ./frontend
+    image: mviz/frontend
+    ports:
+      - "9000:80"
+  backend:
+    build: ./backend
+    image: mviz/backend
+    ports:
+      - "3000:3000"
