@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DetailsComponent } from './views/details/details.component';
-import { SandboxComponent } from './views/sandbox/sandbox.component';
 import { SearchComponent } from './views/search/search.component';
+import { VisualizationSupporterComponent } from './views/visualization-supporter/visualization-supporter.component';
 
 const routes: Routes = [
   {
@@ -11,8 +11,8 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path: 'sandbox',
-    component: SandboxComponent
+    path: 'visualization-supporter',
+    component: VisualizationSupporterComponent
   },
   {
     path: 'details/:id',

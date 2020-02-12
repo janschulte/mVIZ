@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SandboxComponent } from './sandbox.component';
+import { VisualizationSupporterComponent } from './visualization-supporter.component';
 
 describe('DetailsComponent', () => {
-  let component: SandboxComponent;
-  let fixture: ComponentFixture<SandboxComponent>;
+  let component: VisualizationSupporterComponent;
+  let fixture: ComponentFixture<VisualizationSupporterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SandboxComponent ]
+      declarations: [VisualizationSupporterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SandboxComponent);
+    fixture = TestBed.createComponent(VisualizationSupporterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

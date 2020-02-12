@@ -24,16 +24,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AscertainVisualizationComponent } from './components/ascertain-visualization/ascertain-visualization.component';
 import { DistributionFacetComponent } from './components/distribution-facet/distribution-facet.component';
+import { LastUpdateTimeComponent } from './components/last-update-time/last-update-time.component';
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
 import { DetailsComponent } from './views/details/details.component';
-import { SandboxComponent } from './views/sandbox/sandbox.component';
 import { SearchComponent } from './views/search/search.component';
+import { VisualizationSupporterComponent } from './views/visualization-supporter/visualization-supporter.component';
 import { CategoryGroupComponent } from './vis-resolver/components/category-group/category-group.component';
 import { VisResolverComponent } from './vis-resolver/components/vis-resolver/vis-resolver.component';
 import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
-import { LastUpdateTimeComponent } from './components/last-update-time/last-update-time.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import { LastUpdateTimeComponent } from './components/last-update-time/last-upda
     SearchComponent,
     SearchResultListComponent,
     WmsMapComponent,
-    SandboxComponent,
+    VisualizationSupporterComponent,
     CategoryGroupComponent,
     VisResolverComponent,
     ScorePipePipe,
