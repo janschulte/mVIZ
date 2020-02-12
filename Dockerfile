@@ -7,6 +7,6 @@ RUN npm run build:prod
 
 FROM nginx:1.17.8-alpine
 COPY nginx/default.conf /etc/nginx/conf.d
-COPY --from=builder /app/dist/frontend /usr/share/nginx/html
+COPY --from=builder /app/dist/mviz-demonstrator /usr/share/nginx/html
 # the container can be started like this: docker run -p 80:80 -e PORT=80 mviz-demonstrator
 CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
