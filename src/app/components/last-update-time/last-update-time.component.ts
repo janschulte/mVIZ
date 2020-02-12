@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DatasetInterface } from '../../mcloud-interface.service';
+import { SearchService } from './../../views/search/search.service';
 
 @Component({
   selector: 'app-last-update-time',
@@ -12,11 +12,11 @@ export class LastUpdateTimeComponent implements OnInit {
   public lastUpdateTime: Date;
 
   constructor(
-    private datasetInterface: DatasetInterface
+    private searchService: SearchService
   ) { }
 
   ngOnInit() {
-    this.datasetInterface.getInfo().subscribe(res => this.lastUpdateTime = res.lastHarvestTime);
+    this.searchService.onUpdateTimeChanged.subscribe(date => this.lastUpdateTime = date);
   }
 
 }

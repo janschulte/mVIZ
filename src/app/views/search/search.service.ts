@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 
@@ -10,9 +10,10 @@ import { Dataset, DistributionType } from '../../shared/dataset';
 })
 export class SearchService {
 
-  public onResultsChanged: EventEmitter<Dataset[]> = new EventEmitter();
-  public onLoading: ReplaySubject<boolean> = new ReplaySubject(1);
+  public onResultsChanged: ReplaySubject<Dataset[]> = new ReplaySubject(1);
+  public onUpdateTimeChanged: ReplaySubject<Date> = new ReplaySubject(1);
   public onSearchTermChanged: ReplaySubject<string> = new ReplaySubject(1);
+  public onLoading: ReplaySubject<boolean> = new ReplaySubject(1);
   public onDistributionTypesChanged: ReplaySubject<DistributionType[]> = new ReplaySubject(1);
 
   private searchTerm: string;
@@ -76,9 +77,16 @@ export class SearchService {
 
   private startSearch() {
     this.onLoading.next(true);
-    this.datasetInterface.getDatasets(this.searchTerm, this.distributionTypes).subscribe(res => {
-      this.onResultsChanged.emit(res);
-      this.onLoading.next(false);
-    });
+    this.datasetInterface.getInfo().subscribe(
+      res => this.onUpdateTimeChanged.next(res.lastHarvestTime),
+      error => console.error(error)
+    );
+    this.datasetInterface.getDatasets(this.searchTerm, this.distributionTypes).subscribe(
+      res => {
+        this.onResultsChanged.next(res);
+        this.onLoading.next(false);
+      },
+      error => console.error(error)
+    );
   }
 }
