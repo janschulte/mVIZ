@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { CategoryGroup, Visualisation } from './../../model';
 import { VisResolverService } from './../../vis-resolver.service';
@@ -10,9 +11,11 @@ import { VisResolverService } from './../../vis-resolver.service';
 })
 export class VisResolverComponent implements OnInit {
 
+  displayedColumns: string[] = ['label', 'score'];
+
   public groups: CategoryGroup[] = [];
 
-  public visualisations: Visualisation[] = [];
+  public visualisations = new MatTableDataSource<Visualisation>();
 
   constructor(
     private visRes: VisResolverService
@@ -20,7 +23,11 @@ export class VisResolverComponent implements OnInit {
 
   ngOnInit() {
     this.groups = this.visRes.groups;
-    this.visualisations = this.visRes.calculatedVisualisations;
+    this.visRes.changedVisualizations.subscribe(vis => this.visualisations.data = this.prepareVisualizations(vis));
+  }
+
+  private prepareVisualizations(vis: Visualisation[]): Visualisation[] {
+    return vis.filter(e => e.score > 0).sort((a, b) => b.score - a.score);
   }
 
 }

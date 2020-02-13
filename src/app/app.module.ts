@@ -13,6 +13,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { BrowserModule } from '@angular/platform-browser';
@@ -61,6 +62,7 @@ import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
     HelgolandOpenLayersModule,
     HttpClientModule,
     MatButtonModule,
+    MatTableModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,

@@ -1,8 +1,9 @@
+import { ReplaySubject } from 'rxjs';
 import { DimensionCG } from './categories/dimension/group';
 import { TimeSequenceCG } from './categories/time-sequence/group';
 import { TimeModelCG } from './categories/time-model/group';
 import { FocusCG } from './categories/focus/group';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { GeometryTypeCG } from './categories/geometrie-typ/group';
 import { LevelOfMeasurementCG } from './categories/level-of-measurement/group';
@@ -19,7 +20,9 @@ export class VisResolverService {
 
   public groups: CategoryGroup[] = [];
 
-  public calculatedVisualisations: Visualisation[] = [];
+  public changedVisualizations: ReplaySubject<Visualisation[]> = new ReplaySubject(1);
+
+  private calculatedVisualisations: Visualisation[] = [];
 
   constructor() {
     this.groups.push(new ThematicVariableCG());
@@ -42,7 +45,7 @@ export class VisResolverService {
         });
       }
     }
-    this.checkDeactivations();
+    this.calculateVisList();
   }
 
   public calculateVisList() {
@@ -58,6 +61,7 @@ export class VisResolverService {
         });
       });
     });
+    this.changedVisualizations.next(this.calculatedVisualisations);
   }
 
   public checkDeactivations() {
