@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Spatial implements CategoryEntry {
+export class Spatial extends CategoryEntry {
     label = 'Räumlich';
     description = 'Räumliche Veränderung der Thematik, keine zeitliche Veränderung (z.B. statische Phänomene, Momentaufnahme)';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Spatial implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

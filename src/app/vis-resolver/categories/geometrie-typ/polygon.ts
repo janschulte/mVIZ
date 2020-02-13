@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Polygon implements CategoryEntry {
+export class Polygon extends CategoryEntry {
     label = 'Polygon/Multipolygon';
     description = '';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class Polygon implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 1;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

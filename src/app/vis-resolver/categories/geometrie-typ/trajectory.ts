@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Trajectory implements CategoryEntry {
+export class Trajectory extends CategoryEntry {
     label = 'Trajektorie – Punktabfolge mit Zeitinformation';
     description = '';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Trajectory implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

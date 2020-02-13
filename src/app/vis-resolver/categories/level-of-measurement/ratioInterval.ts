@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class RatioInterval implements CategoryEntry {
+export class RatioInterval extends CategoryEntry {
     label = 'Ratio/Interval';
     description = 'Ratio: Quantitativ, metrisch, existriert ein absoluter Nullpunkt (20 Kelvin sind doppelt so heiß wie 10K) <br> ' +
         'Interval: Quantitativ, metrisch, Rangunterschiede zwischen einzelnen Daten, kein absoluter Nullpunkt (Datum, Celsius…), ' +
@@ -34,4 +34,6 @@ export class RatioInterval implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 1;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

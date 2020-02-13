@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Static implements CategoryEntry {
+export class Static extends CategoryEntry {
     label = 'Statisch';
     description = 'Statisch (Interaktionen zu statischen Inhalten möglich)';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class Static implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 1;
     HeatmapWithoutMap = 1;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

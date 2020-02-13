@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Line implements CategoryEntry {
+export class Line extends CategoryEntry {
     label = 'Line/Multiline';
     description = '';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Line implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

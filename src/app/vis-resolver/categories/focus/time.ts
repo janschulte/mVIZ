@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Time implements CategoryEntry {
+export class Time extends CategoryEntry {
     label = 'Zeitlich';
     description = 'Zeitliche Veränderung der Thematik, keine räumliche Veränderung (z.B. fest installierte Temperaturmessstation)';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class Time implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

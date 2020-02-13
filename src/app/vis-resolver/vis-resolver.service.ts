@@ -42,9 +42,11 @@ export class VisResolverService {
         });
       }
     }
+    this.checkDeactivations();
   }
 
   public calculateVisList() {
+    this.checkDeactivations();
     // iterate visualisations
     this.calculatedVisualisations.forEach(vis => {
       vis.score = 0;
@@ -54,6 +56,15 @@ export class VisResolverService {
             vis.score += entry.entry[vis.key];
           }
         });
+      });
+    });
+  }
+
+  public checkDeactivations() {
+    console.log(`Check category deactivations`);
+    this.groups.forEach(group => {
+      group.categoryEntriesSelection.forEach(entry => {
+        entry.entry.checkDeactivation(this.groups);
       });
     });
   }

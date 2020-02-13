@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Ordinal implements CategoryEntry {
+export class Ordinal extends CategoryEntry {
     label = 'Ordinal';
     description = '(qualitativ), Rangordnung, größer/kleiner etc.';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Ordinal implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

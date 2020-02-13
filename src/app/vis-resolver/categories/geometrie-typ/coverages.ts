@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Coverages implements CategoryEntry {
+export class Coverages extends CategoryEntry {
     label = 'Coverages (Raster, TIN)';
     description = '';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class Coverages implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 1;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

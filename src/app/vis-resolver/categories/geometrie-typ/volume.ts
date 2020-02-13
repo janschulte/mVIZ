@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Volume implements CategoryEntry {
+export class Volume extends CategoryEntry {
     label = 'Volume';
     description = '3D Stadtmodelle';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Volume implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

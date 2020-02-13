@@ -1,6 +1,9 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
+import { CategoryHelper } from '../category-helper';
+import { ThematicVariableCG } from '../thematic-variables/group';
+import { Ts0 } from '../thematic-variables/ts0';
 
-export class Overlapping implements CategoryEntry {
+export class Overlapping extends CategoryEntry {
     label = 'Überlappend';
     description = 'Zeitintervalle überlappen sich';
     ThreeDVases = 0;
@@ -32,4 +35,8 @@ export class Overlapping implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void {
+        this.disabled = new CategoryHelper().findCategoryEntrySelection(groups, ThematicVariableCG, Ts0).selected;
+    }
 }

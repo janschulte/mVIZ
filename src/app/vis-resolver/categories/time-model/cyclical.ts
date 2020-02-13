@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Cyclical implements CategoryEntry {
+export class Cyclical extends CategoryEntry {
     label = 'Zyklisch';
     description = 'Kreis, Zeitliche Perioden sind ersichtlich (Jahreszeiten etc.)';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Cyclical implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

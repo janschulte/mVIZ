@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Nominal implements CategoryEntry {
+export class Nominal extends CategoryEntry {
     label = 'Nominal';
     description = 'qualitativ';
     ThreeDVases = 0;
@@ -32,4 +32,6 @@ export class Nominal implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

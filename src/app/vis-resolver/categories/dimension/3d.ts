@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class ThreeD implements CategoryEntry {
+export class ThreeD extends CategoryEntry {
     label = '3D';
     description = '';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class ThreeD implements CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

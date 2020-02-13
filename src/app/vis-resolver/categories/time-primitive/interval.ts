@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class Interval implements CategoryEntry {
+export class Interval extends CategoryEntry {
     label = 'Intervall (diskrete Spanne)';
     description = 'Zeitspanne/Intervall';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class Interval implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 1;
     HeatmapWithoutMap = 1;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }

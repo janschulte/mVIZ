@@ -1,6 +1,6 @@
-import { CategoryEntry } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 
-export class TsM implements CategoryEntry {
+export class TsM extends CategoryEntry {
     label = 'TS-m';
     description = 'Räumlich, Zeitlich, X zusätzliche Variable';
     ThreeDVases = 1;
@@ -32,4 +32,6 @@ export class TsM implements CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
+    disabled = false;
+    checkDeactivation(groups: CategoryGroup[]): void { }
 }
