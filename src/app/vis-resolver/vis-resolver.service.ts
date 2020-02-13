@@ -52,7 +52,7 @@ export class VisResolverService {
       vis.score = 0;
       this.groups.forEach(group => {
         group.categoryEntries.forEach(entry => {
-          if (entry.selected) {
+          if (entry.selected && !entry.disabled) {
             vis.score += entry[vis.key];
           }
         });

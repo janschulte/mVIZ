@@ -1,25 +1,27 @@
-<h3>{{group.label}}</h3>
-<div>{{group.description}}</div>
-
-<!-- multi select -->
-<div *ngIf="group.multi" class="category-checkbox-group">
-  <div *ngFor="let e of group.categoryEntries">
-    <mat-checkbox class="category-checkbox" [disabled]="e.disabled" [(ngModel)]="e.selected" (change)="changed()">
-      <span class="label">{{e.label}}</span>
-    </mat-checkbox>
-    <div class="description" [innerHTML]="e.description"></div>
-  </div>
-</div>
-
-<!-- single select -->
-<div *ngIf="!group.multi">
-  <mat-radio-group (change)="singelSelectionChanged($event.value)">
-    <div *ngFor="let e of group.categoryEntries" class="category-radio-group">
-      <mat-radio-button class="category-radio-button" [disabled]="e.disabled"
-        [value]="e.label">
+<div *ngIf="!isDisabled()">
+  <h3>{{group.label}}</h3>
+  <div>{{group.description}}</div>
+  
+  <!-- multi select -->
+  <div *ngIf="group.multi" class="category-checkbox-group">
+    <div *ngFor="let e of group.categoryEntries">
+      <mat-checkbox class="category-checkbox" [disabled]="e.disabled" [(ngModel)]="e.selected" (change)="changed()">
         <span class="label">{{e.label}}</span>
-      </mat-radio-button>
-      <span class="description" [innerHTML]="e.description"></span>
+      </mat-checkbox>
+      <div class="description" [innerHTML]="e.description"></div>
     </div>
-  </mat-radio-group>
+  </div>
+  
+  <!-- single select -->
+  <div *ngIf="!group.multi">
+    <mat-radio-group (change)="singleSelectionChanged($event.value)">
+      <div *ngFor="let e of group.categoryEntries" class="category-radio-group">
+        <mat-radio-button class="category-radio-button" [disabled]="e.disabled"
+          [value]="e.label">
+          <span class="label">{{e.label}}</span>
+        </mat-radio-button>
+        <span class="description" [innerHTML]="e.description"></span>
+      </div>
+    </mat-radio-group>
+  </div>
 </div>
