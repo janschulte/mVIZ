@@ -2,7 +2,9 @@ import { CategoryEntry } from '../../model';
 
 export class RatioInterval implements CategoryEntry {
     label = 'Ratio/Interval';
-    description = 'Ratio: Quantitativ, metrisch, existriert ein absoluter Nullpunkt (20 Kelvin sind doppelt so heiß wie 10K) Interval: Quantitativ, metrisch, Rangunterschiede zwischen einzelnen Daten, kein absoluter Nullpunkt (Datum, Celsius…), z.b. 20C ist nicht doppelt so heiß wie 10 Grad C.';
+    description = 'Ratio: Quantitativ, metrisch, existriert ein absoluter Nullpunkt (20 Kelvin sind doppelt so heiß wie 10K) <br> ' +
+        'Interval: Quantitativ, metrisch, Rangunterschiede zwischen einzelnen Daten, kein absoluter Nullpunkt (Datum, Celsius…), ' +
+        'z.b. 20 °C ist nicht doppelt so heiß wie 10 °C.';
     ThreeDVases = 1;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;

@@ -7,7 +7,8 @@ export class SpatialOverlappingOfThemesCG implements CategoryGroup {
 
     label = 'Räumliche Überlagerung verschiedener Themen';
 
-    description = 'Messungen unterschiedlicher Variablen mit zugehöriger räumlicher Abdeckung können innerhalb derselben Visualisierung dargestellt werden.';
+    description = 'Messungen unterschiedlicher Variablen mit zugehöriger räumlicher ' +
+        'Abdeckung können innerhalb derselben Visualisierung dargestellt werden.';
 
     multi = true;
 

@@ -2,7 +2,7 @@ import { CategoryEntry } from '../../model';
 
 export class Identic implements CategoryEntry {
     label = 'Identisch';
-    description = 'Zeitpunkte od. Zeitintervalle identisch';
+    description = 'Zeitpunkte oder Zeitintervalle identisch';
     ThreeDVases = 0;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;

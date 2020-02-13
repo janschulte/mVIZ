@@ -2,7 +2,7 @@ import { CategoryEntry } from '../../model';
 
 export class Seperated implements CategoryEntry {
     label = 'Getrennt';
-    description = 'Zeitpunkte od. Intervalle sind verschieden';
+    description = 'Zeitpunkte oder Intervalle sind verschieden';
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
