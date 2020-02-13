@@ -5,6 +5,8 @@ export class RatioInterval extends CategoryEntry {
     description = 'Ratio: Quantitativ, metrisch, existriert ein absoluter Nullpunkt (20 Kelvin sind doppelt so heiß wie 10K) <br> ' +
         'Interval: Quantitativ, metrisch, Rangunterschiede zwischen einzelnen Daten, kein absoluter Nullpunkt (Datum, Celsius…), ' +
         'z.b. 20 °C ist nicht doppelt so heiß wie 10 °C.';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -34,6 +36,5 @@ export class RatioInterval extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 1;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

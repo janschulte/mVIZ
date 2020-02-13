@@ -1,4 +1,4 @@
-import { CategoryEntrySelection, CategoryGroup } from '../../model';
+import { CategoryGroup, CategoryEntry } from '../../model';
 import { Coverages } from './coverages';
 import { Line } from './line';
 import { Point } from './point';
@@ -14,14 +14,14 @@ export class GeometryTypeCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Point(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Line(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Polygon(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Volume(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Trajectory(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Coverages(), selected: false });
+        this.categoryEntries.push(new Point());
+        this.categoryEntries.push(new Line());
+        this.categoryEntries.push(new Polygon());
+        this.categoryEntries.push(new Volume());
+        this.categoryEntries.push(new Trajectory());
+        this.categoryEntries.push(new Coverages());
     }
 }

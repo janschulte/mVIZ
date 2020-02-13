@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Ordinal extends CategoryEntry {
     label = 'Ordinal';
     description = '(qualitativ), Rangordnung, größer/kleiner etc.';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -32,6 +34,5 @@ export class Ordinal extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

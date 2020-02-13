@@ -2,6 +2,7 @@ export abstract class CategoryEntry {
     abstract label: string;
     abstract description: string;
     abstract disabled: boolean;
+    abstract selected: boolean;
     abstract ThreeDVases: number;
     abstract PencilIconsOnMap: number;
     abstract HelixIconsOnMap: number;
@@ -102,12 +103,7 @@ export interface CategoryGroup {
     label: string;
     description: string;
     multi: boolean;
-    categoryEntriesSelection: CategoryEntrySelection[];
-}
-
-export interface CategoryEntrySelection {
-    entry: CategoryEntry;
-    selected: boolean;
+    categoryEntries: CategoryEntry[];
 }
 
 export interface Visualisation {

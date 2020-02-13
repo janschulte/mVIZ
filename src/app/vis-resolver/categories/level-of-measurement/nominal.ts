@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Nominal extends CategoryEntry {
     label = 'Nominal';
     description = 'qualitativ';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -32,6 +34,5 @@ export class Nominal extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

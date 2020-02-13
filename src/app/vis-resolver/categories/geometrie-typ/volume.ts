@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Volume extends CategoryEntry {
     label = 'Volume';
     description = '3D Stadtmodelle';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -32,6 +34,5 @@ export class Volume extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

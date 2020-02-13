@@ -24,8 +24,8 @@ export class CategoryGroupComponent implements OnInit {
   }
 
   public singelSelectionChanged(selectedLabel: string) {
-    this.group.categoryEntriesSelection.forEach(e => e.selected = false);
-    this.group.categoryEntriesSelection.find(e => e.entry.label === selectedLabel).selected = true;
+    this.group.categoryEntries.forEach(e => e.selected = false);
+    this.group.categoryEntries.find(e => e.label === selectedLabel).selected = true;
     this.visRes.calculateVisList();
   }
 

@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Point extends CategoryEntry {
     label = 'Punkt (diskreter Punkt)';
     description = 'Punktmessung';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -32,6 +34,5 @@ export class Point extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 1;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Dynamic extends CategoryEntry {
     label = 'Dynamisch';
     description = 'Abbildung von Veränderungen z.B. durch Animation oder Interaktion (z.B. Timeslider)';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -32,6 +34,5 @@ export class Dynamic extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

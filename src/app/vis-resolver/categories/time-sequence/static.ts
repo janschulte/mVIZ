@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Static extends CategoryEntry {
     label = 'Statisch';
     description = 'Statisch (Interaktionen zu statischen Inhalten möglich)';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -32,6 +34,5 @@ export class Static extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 1;
     HeatmapWithoutMap = 1;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

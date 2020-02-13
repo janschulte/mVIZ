@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Point extends CategoryEntry {
     label = 'Point/Multipoint';
     description = '';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -32,6 +34,5 @@ export class Point extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 1;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

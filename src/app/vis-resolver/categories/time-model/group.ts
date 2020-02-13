@@ -1,7 +1,6 @@
-import { Linear } from './linear';
+import { CategoryEntry, CategoryGroup } from '../../model';
 import { Cyclical } from './cyclical';
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { Linear } from './linear';
 
 export class TimeModelCG implements CategoryGroup {
 
@@ -11,10 +10,10 @@ export class TimeModelCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Linear(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Cyclical(), selected: false });
+        this.categoryEntries.push(new Linear());
+        this.categoryEntries.push(new Cyclical());
     }
 }

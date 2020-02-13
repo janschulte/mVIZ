@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class SpatialTime extends CategoryEntry {
     label = 'Raum-Zeitlich';
     description = 'Räumliche und zeitliche Veränderungen';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -32,6 +34,5 @@ export class SpatialTime extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 1;
     HeatmapWithoutMap = 1;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

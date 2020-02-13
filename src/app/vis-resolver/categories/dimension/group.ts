@@ -1,5 +1,4 @@
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 import { TwoD } from './2d';
 import { ThreeD } from './3d';
 
@@ -11,10 +10,10 @@ export class DimensionCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new TwoD(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new ThreeD(), selected: false });
+        this.categoryEntries.push(new TwoD());
+        this.categoryEntries.push(new ThreeD());
     }
 }

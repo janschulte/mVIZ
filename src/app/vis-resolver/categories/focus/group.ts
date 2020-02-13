@@ -1,5 +1,4 @@
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { CategoryGroup, CategoryEntry } from '../../model';
 import { Time } from './time';
 import { Spatial } from './spatial';
 import { SpatialTime } from './spatial-time';
@@ -12,11 +11,11 @@ export class FocusCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Time(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Spatial(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new SpatialTime(), selected: false });
+        this.categoryEntries.push(new Time());
+        this.categoryEntries.push(new Spatial());
+        this.categoryEntries.push(new SpatialTime());
     }
 }

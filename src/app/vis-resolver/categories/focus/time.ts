@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Time extends CategoryEntry {
     label = 'Zeitlich';
     description = 'Zeitliche Veränderung der Thematik, keine räumliche Veränderung (z.B. fest installierte Temperaturmessstation)';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -32,6 +34,5 @@ export class Time extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

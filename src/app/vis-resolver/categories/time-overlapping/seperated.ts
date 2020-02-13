@@ -6,6 +6,8 @@ import { Ts0 } from '../thematic-variables/ts0';
 export class Seperated extends CategoryEntry {
     label = 'Getrennt';
     description = 'Zeitpunkte oder Intervalle sind verschieden';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 0;
@@ -35,7 +37,6 @@ export class Seperated extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void {
         this.disabled = new CategoryHelper().findCategoryEntrySelection(groups, ThematicVariableCG, Ts0).selected;
     }

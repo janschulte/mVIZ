@@ -1,4 +1,4 @@
-import { CategoryEntrySelection, CategoryGroup } from '../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 import { Nominal } from './nominal';
 import { Ordinal } from './ordinal';
 import { RatioInterval } from './ratioInterval';
@@ -11,11 +11,11 @@ export class LevelOfMeasurementCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Nominal(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Ordinal(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new RatioInterval(), selected: false });
+        this.categoryEntries.push(new Nominal());
+        this.categoryEntries.push(new Ordinal());
+        this.categoryEntries.push(new RatioInterval());
     }
 }

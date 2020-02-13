@@ -1,5 +1,4 @@
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 import { Identic } from './identic';
 import { Overlapping } from './overlapping';
 import { Seperated } from './seperated';
@@ -12,11 +11,11 @@ export class TimeOverlappingOfThemesCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Identic(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Overlapping(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Seperated(), selected: false });
+        this.categoryEntries.push(new Identic());
+        this.categoryEntries.push(new Overlapping());
+        this.categoryEntries.push(new Seperated());
     }
 }

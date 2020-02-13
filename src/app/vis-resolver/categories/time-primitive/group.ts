@@ -1,5 +1,4 @@
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { CategoryEntry, CategoryGroup } from '../../model';
 import { Interval } from './interval';
 import { Point } from './point';
 
@@ -11,10 +10,10 @@ export class TimePrimitiveCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Point(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Interval(), selected: false });
+        this.categoryEntries.push(new Point());
+        this.categoryEntries.push(new Interval());
     }
 }

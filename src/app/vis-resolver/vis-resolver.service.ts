@@ -51,9 +51,9 @@ export class VisResolverService {
     this.calculatedVisualisations.forEach(vis => {
       vis.score = 0;
       this.groups.forEach(group => {
-        group.categoryEntriesSelection.forEach(entry => {
+        group.categoryEntries.forEach(entry => {
           if (entry.selected) {
-            vis.score += entry.entry[vis.key];
+            vis.score += entry[vis.key];
           }
         });
       });
@@ -63,8 +63,8 @@ export class VisResolverService {
   public checkDeactivations() {
     console.log(`Check category deactivations`);
     this.groups.forEach(group => {
-      group.categoryEntriesSelection.forEach(entry => {
-        entry.entry.checkDeactivation(this.groups);
+      group.categoryEntries.forEach(entry => {
+        entry.checkDeactivation(this.groups);
       });
     });
   }

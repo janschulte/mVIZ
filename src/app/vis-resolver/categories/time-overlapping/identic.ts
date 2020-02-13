@@ -7,6 +7,8 @@ export class Identic extends CategoryEntry {
 
     label = 'Identisch';
     description = 'Zeitpunkte oder Zeitintervalle identisch';
+    selected = false;
+    disabled = false;
     ThreeDVases = 0;
     PencilIconsOnMap = 1;
     HelixIconsOnMap = 1;
@@ -36,8 +38,6 @@ export class Identic extends CategoryEntry {
     EventStacks = 0;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
-
     checkDeactivation(groups: CategoryGroup[]): void {
         this.disabled = new CategoryHelper().findCategoryEntrySelection(groups, ThematicVariableCG, Ts0).selected;
     }

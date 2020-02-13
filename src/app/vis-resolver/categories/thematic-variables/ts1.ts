@@ -3,6 +3,8 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 export class Ts1 extends CategoryEntry {
     label = 'TS-1';
     description = 'Räumlich, Zeitlich, 1 zusätzliche Variable';
+    selected = false;
+    disabled = false;
     ThreeDVases = 1;
     PencilIconsOnMap = 0;
     HelixIconsOnMap = 1;
@@ -32,6 +34,5 @@ export class Ts1 extends CategoryEntry {
     EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
-    disabled = false;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

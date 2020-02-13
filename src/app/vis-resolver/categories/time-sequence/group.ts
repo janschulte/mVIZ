@@ -1,7 +1,6 @@
 import { Dynamic } from './dynamic';
 import { Static } from './static';
-import { CategoryGroup } from '../../model';
-import { CategoryEntrySelection } from './../../model';
+import { CategoryGroup, CategoryEntry } from '../../model';
 
 export class TimeSequenceCG implements CategoryGroup {
 
@@ -11,10 +10,10 @@ export class TimeSequenceCG implements CategoryGroup {
 
     multi = true;
 
-    categoryEntriesSelection: CategoryEntrySelection[] = [];
+    categoryEntries: CategoryEntry[] = [];
 
     constructor() {
-        this.categoryEntriesSelection.push({ entry: new Static(), selected: false });
-        this.categoryEntriesSelection.push({ entry: new Dynamic(), selected: false });
+        this.categoryEntries.push(new Static());
+        this.categoryEntries.push(new Dynamic());
     }
 }
