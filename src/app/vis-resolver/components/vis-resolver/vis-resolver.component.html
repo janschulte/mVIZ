@@ -5,22 +5,31 @@
   <!-- <pre>{{groups | json: 2}}</pre> -->
 </div>
 
-<div class="visualisation-results">
+<div class="visualisation-results" *ngIf="visualisations.data.length !== 0">
 
-  <table mat-table [dataSource]="visualisations">
-
-    <ng-container matColumnDef="label">
-      <th mat-header-cell *matHeaderCellDef> Visualization </th>
-      <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+  <table mat-table [dataSource]="visualisations" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let vis"> {{vis[column]}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="score">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let vis" [attr.colspan]="displayedColumns.length">
+        <div class="vis-detail" [@detailExpand]="vis == expandedVis ? 'expanded' : 'collapsed'">
+          <!-- vis content goes here-->
+          <!-- <div class="vis-description">
+            {{vis.key}}
+          </div> -->
+        </div>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let vis; columns: displayedColumns;" class="vis-row"
+      [class.expanded-row]="expandedVis === vis"
+      (click)="expandedVis = expandedVis === vis ? null : vis">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="vis-detail-row"></tr>
   </table>
 
 </div>

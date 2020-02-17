@@ -15,3 +15,25 @@
         }
     }
 }
+
+tr.vis-detail-row {
+    height: 0;
+}
+
+tr.vis-row:not(.expanded-row):hover {
+    background: #777;
+    cursor: pointer;
+}
+
+.vis-row td {
+    border-bottom-width: 0;
+}
+
+.vis-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.vis-description {
+    padding: 16px;
+}
