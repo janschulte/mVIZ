@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,12 +29,17 @@ import { LastUpdateTimeComponent } from './components/last-update-time/last-upda
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
+import { SettingsInitializerService } from './services/settings-initializer.service';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
 import { VisualizationSupporterComponent } from './views/visualization-supporter/visualization-supporter.component';
 import { CategoryGroupComponent } from './vis-resolver/components/category-group/category-group.component';
 import { VisResolverComponent } from './vis-resolver/components/vis-resolver/vis-resolver.component';
 import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
+
+export function initSettings(settingsInitializerService: SettingsInitializerService) {
+  return () => settingsInitializerService.initializeSettings();
+}
 
 @NgModule({
   declarations: [
@@ -76,7 +81,14 @@ import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
     MatToolbarModule,
     MatTreeModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initSettings,
+      deps: [SettingsInitializerService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
