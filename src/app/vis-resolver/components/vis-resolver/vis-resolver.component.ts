@@ -19,7 +19,7 @@ import { VisResolverService } from './../../vis-resolver.service';
 })
 export class VisResolverComponent implements OnInit {
 
-  displayedColumns: string[] = ['label', 'score'];
+  displayedColumns: string[] = ['label'];
 
   expandedVis: Visualisation | null;
 
@@ -40,7 +40,7 @@ export class VisResolverComponent implements OnInit {
   }
 
   private prepareVisualizations(vis: Visualisation[]) {
-    this.visualisations.data = vis.filter(e => e.score > 0).sort((a, b) => b.score - a.score);
+    this.visualisations.data = vis.sort((a, b) => b.score - a.score);
   }
 
 }
