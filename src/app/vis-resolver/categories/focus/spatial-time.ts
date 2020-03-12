@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class SpatialTime extends CategoryEntry {
     label = 'Raum-Zeitlich';
+    metadataLink = 'spatioTemporal';
     description = 'Räumliche und zeitliche Veränderungen';
     selected = false;
     disabled = false;

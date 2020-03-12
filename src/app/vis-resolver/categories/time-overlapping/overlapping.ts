@@ -5,6 +5,7 @@ import { Ts0 } from '../thematic-variables/ts0';
 
 export class Overlapping extends CategoryEntry {
     label = 'Überlappend';
+    metadataLink = 'overlapping';
     description = 'Zeitintervalle überlappen sich';
     selected = false;
     disabled = false;

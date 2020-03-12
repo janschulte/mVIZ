@@ -1,5 +1,6 @@
 export abstract class CategoryEntry {
     abstract label: string;
+    abstract metadataLink: string;
     abstract description: string;
     abstract disabled: boolean;
     abstract selected: boolean;

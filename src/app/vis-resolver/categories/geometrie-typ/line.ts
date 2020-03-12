@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Line extends CategoryEntry {
     label = 'Line/Multiline';
+    metadataLink = 'line';
     description = '';
     selected = false;
     disabled = false;

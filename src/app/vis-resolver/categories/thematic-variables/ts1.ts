@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Ts1 extends CategoryEntry {
     label = 'TS-1';
+    metadataLink = 'TS-1';
     description = 'Räumlich, Zeitlich, 1 zusätzliche Variable';
     selected = false;
     disabled = false;

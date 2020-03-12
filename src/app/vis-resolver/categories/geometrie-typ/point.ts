@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Point extends CategoryEntry {
     label = 'Point/Multipoint';
+    metadataLink = 'point';
     description = '';
     selected = false;
     disabled = false;

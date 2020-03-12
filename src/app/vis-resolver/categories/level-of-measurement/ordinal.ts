@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Ordinal extends CategoryEntry {
     label = 'Ordinal';
+    metadataLink = 'ordinal';
     description = '(qualitativ), Rangordnung, größer/kleiner etc.';
     selected = false;
     disabled = false;

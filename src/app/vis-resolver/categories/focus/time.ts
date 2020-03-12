@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Time extends CategoryEntry {
     label = 'Zeitlich';
+    metadataLink = 'temporal';
     description = 'Zeitliche Veränderung der Thematik, keine räumliche Veränderung (z.B. fest installierte Temperaturmessstation)';
     selected = false;
     disabled = false;

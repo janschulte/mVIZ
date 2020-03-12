@@ -1,0 +1,9 @@
+<mat-sidenav-container class="container">
+    <div class="details-wrapper" *ngIf="dataset">
+        <h1>{{dataset.title}}</h1>
+        <div [innerHTML]="dataset.description"></div>
+        <div *ngIf="metadata">
+            <app-vis-resolver [metadata]="metadata"></app-vis-resolver>
+        </div>
+    </div>
+</mat-sidenav-container>

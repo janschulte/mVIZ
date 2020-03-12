@@ -1,3 +1,4 @@
 {
-    "mvizServerUrl": "http://localhost:3001/"
+    "mvizServerUrl": "https://mviz-server.herokuapp.com/",
+    "metadataUrl": "https://cors-anywhere.herokuapp.com/http://mviz-meta-api.us-east-1.elasticbeanstalk.com/"
 }

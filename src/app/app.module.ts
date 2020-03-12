@@ -27,9 +27,11 @@ import { AscertainVisualizationComponent } from './components/ascertain-visualiz
 import { DistributionFacetComponent } from './components/distribution-facet/distribution-facet.component';
 import { LastUpdateTimeComponent } from './components/last-update-time/last-update-time.component';
 import { SearchResultListComponent } from './components/search-result-list/search-result-list.component';
+import { VisResolverStarterComponent } from './components/vis-resolver-starter/vis-resolver-starter.component';
 import { GeojsonMapComponent } from './components/visualizations/geojson-map/geojson-map.component';
 import { WmsMapComponent } from './components/visualizations/wms-map/wms-map.component';
 import { SettingsInitializerService } from './services/settings-initializer.service';
+import { DetailsVisResolverComponent } from './views/details-vis-resolver/details-vis-resolver.component';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
 import { VisualizationSupporterComponent } from './views/visualization-supporter/visualization-supporter.component';
@@ -56,6 +58,8 @@ export function initSettings(settingsInitializerService: SettingsInitializerServ
     VisResolverComponent,
     ScorePipePipe,
     LastUpdateTimeComponent,
+    VisResolverStarterComponent,
+    DetailsVisResolverComponent,
   ],
   imports: [
     AppRoutingModule,

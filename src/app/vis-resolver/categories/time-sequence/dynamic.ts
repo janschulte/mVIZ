@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Dynamic extends CategoryEntry {
     label = 'Dynamisch';
+    metadataLink = '';
     description = 'Abbildung von Veränderungen z.B. durch Animation oder Interaktion (z.B. Timeslider)';
     selected = false;
     disabled = false;

@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Interval extends CategoryEntry {
     label = 'Intervall (diskrete Spanne)';
+    metadataLink = 'interval';
     description = 'Zeitspanne/Intervall';
     selected = false;
     disabled = false;

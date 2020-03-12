@@ -26,6 +26,10 @@ export class DistributionFacetComponent implements OnInit {
       label: 'WMS',
       selected: false
     }, {
+      type: DistributionType.CSV,
+      label: 'CSV',
+      selected: false
+    }, {
       type: DistributionType.UNKNOWN,
       label: 'Unbekannt',
       selected: false

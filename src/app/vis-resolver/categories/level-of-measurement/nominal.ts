@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Nominal extends CategoryEntry {
     label = 'Nominal';
+    metadataLink = 'nominal';
     description = 'qualitativ';
     selected = false;
     disabled = false;

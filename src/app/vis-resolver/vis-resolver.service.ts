@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 
+import { Metadata } from '../services/metadata-interface.service';
 import { DimensionCG } from './categories/dimension/group';
 import { FocusCG } from './categories/focus/group';
 import { GeometryTypeCG } from './categories/geometrie-typ/group';
@@ -24,7 +25,7 @@ export class VisResolverService {
 
   private calculatedVisualisations: Visualisation[] = [];
 
-  constructor() {
+  public init(metadata: Metadata) {
     this.groups.push(new ThematicVariableCG());
     this.groups.push(new TimeOverlappingOfThemesCG());
     this.groups.push(new SpatialOverlappingOfThemesCG());
@@ -36,6 +37,16 @@ export class VisResolverService {
     this.groups.push(new TimeSequenceCG());
     this.groups.push(new DimensionCG());
 
+    if (metadata) {
+      this.setSelection(metadata.focus, FocusCG);
+      this.setSelection(metadata.geometryType, GeometryTypeCG);
+      this.setSelection(metadata.scaleOfMeasure, LevelOfMeasurementCG);
+      this.setSelection(metadata.spatialOverlay, SpatialOverlappingOfThemesCG);
+      this.setSelection(metadata.temporalOverlay, TimeOverlappingOfThemesCG);
+      this.setSelection(metadata.thematicVariables, ThematicVariableCG);
+      this.setSelection(metadata.timePrimitive, TimePrimitiveCG);
+    }
+
     for (const key in VisualisationKey) {
       if (key) {
         this.calculatedVisualisations.push({
@@ -46,6 +57,17 @@ export class VisResolverService {
       }
     }
     this.calculateVisList();
+  }
+
+  setSelection(metadataParam: string[], categoryGroupType: Type<CategoryGroup>) {
+    const metaDataParam = this.getMetadataParam(metadataParam);
+    const group = this.groups.find(e => e instanceof categoryGroupType);
+    const entry = group.categoryEntries.find(e => e.metadataLink === metaDataParam);
+    if (entry) {
+      entry.selected = true;
+    } else {
+      console.error(`Doesn't find param '${metadataParam}' in group ${group.constructor.name}`);
+    }
   }
 
   public calculateVisList() {
@@ -74,7 +96,7 @@ export class VisResolverService {
 
   private countSelections() {
     let selectCount = 0;
-    this.groups.forEach(g => g.categoryEntries.forEach(e => selectCount += e.selected ? 1 : 0));
+    this.groups.forEach(g => g.categoryEntries.forEach(e => selectCount += e.selected && !e.disabled ? 1 : 0));
     return selectCount;
   }
 
@@ -85,6 +107,10 @@ export class VisResolverService {
         entry.checkDeactivation(this.groups);
       });
     });
+  }
+
+  private getMetadataParam(metadataParam: string[]) {
+    return (metadataParam instanceof Array && metadataParam.length === 1) ? metadataParam[0] : null;
   }
 
 }

@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Linear extends CategoryEntry {
     label = 'Linear';
+    metadataLink = '';
     description = 'Linear, gerade (fortlaufende) Abfolge der Daten';
     selected = false;
     disabled = false;

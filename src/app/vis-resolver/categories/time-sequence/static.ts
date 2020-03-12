@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Static extends CategoryEntry {
     label = 'Statisch';
+    metadataLink = '';
     description = 'Statisch (Interaktionen zu statischen Inhalten möglich)';
     selected = false;
     disabled = false;

@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Trajectory extends CategoryEntry {
     label = 'Trajektorie – Punktabfolge mit Zeitinformation';
+    metadataLink = 'trajectory';
     description = '';
     selected = false;
     disabled = false;

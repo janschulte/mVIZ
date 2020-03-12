@@ -1,7 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { Metadata } from '../../../services/metadata-interface.service';
 import { CategoryGroup, Visualisation } from './../../model';
 import { VisResolverService } from './../../vis-resolver.service';
 
@@ -19,6 +20,8 @@ import { VisResolverService } from './../../vis-resolver.service';
 })
 export class VisResolverComponent implements OnInit {
 
+  @Input() metadata: Metadata;
+
   displayedColumns: string[] = ['label'];
 
   expandedVis: Visualisation | null;
@@ -32,6 +35,7 @@ export class VisResolverComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.visRes.init(this.metadata);
     this.groups = this.visRes.groups;
     this.visRes.changedVisualizations.subscribe(vis => {
       this.expandedVis = null;

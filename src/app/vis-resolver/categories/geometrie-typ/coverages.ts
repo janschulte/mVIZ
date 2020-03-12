@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Coverages extends CategoryEntry {
     label = 'Coverages (Raster, TIN)';
+    metadataLink = 'coverage';
     description = '';
     selected = false;
     disabled = false;

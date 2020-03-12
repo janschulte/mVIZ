@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Polygon extends CategoryEntry {
     label = 'Polygon/Multipolygon';
+    metadataLink = 'polygon';
     description = '';
     selected = false;
     disabled = false;

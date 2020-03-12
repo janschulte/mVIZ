@@ -5,6 +5,7 @@ import { Ts0 } from '../thematic-variables/ts0';
 
 export class Seperated extends CategoryEntry {
     label = 'Getrennt';
+    metadataLink = 'separated';
     description = 'Zeitpunkte oder Intervalle sind verschieden';
     selected = false;
     disabled = false;

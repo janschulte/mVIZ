@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Volume extends CategoryEntry {
     label = 'Volume';
+    metadataLink = 'volume';
     description = '3D Stadtmodelle';
     selected = false;
     disabled = false;

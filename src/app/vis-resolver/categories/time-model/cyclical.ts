@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Cyclical extends CategoryEntry {
     label = 'Zyklisch';
+    metadataLink = '';
     description = 'Kreis, Zeitliche Perioden sind ersichtlich (Jahreszeiten etc.)';
     selected = false;
     disabled = false;

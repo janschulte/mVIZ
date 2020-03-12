@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Point extends CategoryEntry {
     label = 'Punkt (diskreter Punkt)';
+    metadataLink = 'point';
     description = 'Punktmessung';
     selected = false;
     disabled = false;

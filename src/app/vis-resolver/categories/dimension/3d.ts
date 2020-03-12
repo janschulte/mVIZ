@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class ThreeD extends CategoryEntry {
     label = '3D';
+    metadataLink = '';
     description = '';
     selected = false;
     disabled = false;

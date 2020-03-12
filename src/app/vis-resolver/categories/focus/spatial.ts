@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class Spatial extends CategoryEntry {
     label = 'Räumlich';
+    metadataLink = 'spatial';
     description = 'Räumliche Veränderung der Thematik, keine zeitliche Veränderung (z.B. statische Phänomene, Momentaufnahme)';
     selected = false;
     disabled = false;

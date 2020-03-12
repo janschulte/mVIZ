@@ -5,6 +5,7 @@ import { Ts0 } from '../thematic-variables/ts0';
 
 export class Identic extends CategoryEntry {
     label = 'Identisch';
+    metadataLink = 'identical';
     description = 'räumliche Abdeckung identisch bzw. sehr ähnlich';
     selected = false;
     disabled = false;

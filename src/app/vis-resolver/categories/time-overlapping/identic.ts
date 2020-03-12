@@ -6,6 +6,7 @@ import { Ts0 } from './../thematic-variables/ts0';
 export class Identic extends CategoryEntry {
 
     label = 'Identisch';
+    metadataLink = 'identical';
     description = 'Zeitpunkte oder Zeitintervalle identisch';
     selected = false;
     disabled = false;

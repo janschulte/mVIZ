@@ -17,7 +17,7 @@
     <mat-radio-group (change)="singleSelectionChanged($event.value)">
       <div *ngFor="let e of group.categoryEntries" class="category-radio-group">
         <mat-radio-button class="category-radio-button" [disabled]="e.disabled"
-          [value]="e.label">
+          [value]="e.label" [checked]="e.selected">
           <span class="label">{{e.label}}</span>
         </mat-radio-button>
         <span class="description" [innerHTML]="e.description"></span>

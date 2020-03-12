@@ -2,6 +2,7 @@ import { CategoryEntry, CategoryGroup } from '../../model';
 
 export class TwoD extends CategoryEntry {
     label = '2D';
+    metadataLink = '';
     description = '';
     selected = false;
     disabled = false;
