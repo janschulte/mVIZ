@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { DatasetInterface } from '../../mcloud-interface.service';
+import { DatasetInterface } from '../../services/mcloud-interface.service';
 import { Metadata, MetadataInterfaceService } from '../../services/metadata-interface.service';
 import { Dataset } from '../../shared/dataset';
 

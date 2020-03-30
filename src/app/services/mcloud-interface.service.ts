@@ -2,9 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SettingsService } from './services/settings.service';
-import { Dataset, Datasets, DistributionType } from './shared/dataset';
-import { Info } from './shared/info';
+import { SettingsService } from './settings.service';
+import { Dataset, Datasets, DistributionType } from '../shared/dataset';
+import { Info } from '../shared/info';
 
 @Injectable({ providedIn: 'root' })
 export class DatasetInterface {

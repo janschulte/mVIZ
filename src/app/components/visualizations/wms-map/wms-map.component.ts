@@ -7,7 +7,7 @@ import TileLayer from 'ol/layer/Tile';
 import { TileWMS } from 'ol/source';
 
 import { Distribution } from '../../../shared/dataset';
-import { HttpProxyService } from './../../../http-proxy.service';
+import { HttpProxyService } from '../../../services/http-proxy.service';
 
 @Component({
   selector: 'app-wms-map',

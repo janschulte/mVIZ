@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 
-import { DatasetInterface } from '../../mcloud-interface.service';
+import { DatasetInterface } from '../../services/mcloud-interface.service';
 import { Datasets, DistributionType } from '../../shared/dataset';
 
 @Injectable({

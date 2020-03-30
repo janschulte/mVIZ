@@ -11,7 +11,7 @@ import VectorSource from 'ol/source/Vector';
 import { Circle, Fill, Stroke, Style } from 'ol/style';
 
 import { Distribution } from '../../../shared/dataset';
-import { HttpProxyService } from './../../../http-proxy.service';
+import { HttpProxyService } from '../../../services/http-proxy.service';
 
 @Component({
   selector: 'app-geojson-map',
