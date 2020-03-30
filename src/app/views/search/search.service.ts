@@ -3,19 +3,22 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 
 import { DatasetInterface } from '../../mcloud-interface.service';
-import { Dataset, DistributionType } from '../../shared/dataset';
+import { Datasets, DistributionType } from '../../shared/dataset';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  public onResultsChanged: ReplaySubject<Dataset[]> = new ReplaySubject(1);
+  public onResultsChanged: ReplaySubject<Datasets> = new ReplaySubject(1);
   public onUpdateTimeChanged: ReplaySubject<Date> = new ReplaySubject(1);
   public onSearchTermChanged: ReplaySubject<string> = new ReplaySubject(1);
   public onLoading: ReplaySubject<boolean> = new ReplaySubject(1);
   public onDistributionTypesChanged: ReplaySubject<DistributionType[]> = new ReplaySubject(1);
 
+  public pageSize = 20;
+
+  public page = 0;
   private searchTerm: string;
   private distributionTypes: DistributionType[] = [];
 
@@ -31,6 +34,12 @@ export class SearchService {
 
   setSearchTerm(searchTerm: string) {
     this.searchTerm = searchTerm;
+    this.page = 0;
+    this.updateUrlParameter();
+  }
+
+  setPage(page: number) {
+    this.page = page;
     this.updateUrlParameter();
   }
 
@@ -41,6 +50,7 @@ export class SearchService {
     } else {
       if (match !== -1) { this.distributionTypes.splice(match, 1); }
     }
+    this.page = 0;
     this.updateUrlParameter();
   }
 
@@ -56,6 +66,9 @@ export class SearchService {
     if (this.searchTerm) {
       queryParams.searchTerm = this.searchTerm;
     }
+    if (this.page) {
+      queryParams.page = this.page;
+    }
     if (this.distributionTypes && this.distributionTypes.length > 0) {
       queryParams.distributionType = this.distributionTypes.join(',');
     }
@@ -66,6 +79,9 @@ export class SearchService {
     if (params.searchTerm) {
       this.searchTerm = params.searchTerm;
       this.onSearchTermChanged.next(this.searchTerm);
+    }
+    if (params.page) {
+      this.page = parseInt(params.page, 10);
     }
     if (params.distributionType) {
       this.distributionTypes = params.distributionType.split(',');
@@ -81,7 +97,7 @@ export class SearchService {
       res => this.onUpdateTimeChanged.next(res.lastHarvestTime),
       error => console.error(error)
     );
-    this.datasetInterface.getDatasets(this.searchTerm, this.distributionTypes).subscribe(
+    this.datasetInterface.getDatasets(this.searchTerm, this.distributionTypes, this.pageSize, this.page * this.pageSize).subscribe(
       res => {
         this.onResultsChanged.next(res);
         this.onLoading.next(false);

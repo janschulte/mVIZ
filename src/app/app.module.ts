@@ -9,6 +9,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -47,19 +48,19 @@ export function initSettings(settingsInitializerService: SettingsInitializerServ
   declarations: [
     AppComponent,
     AscertainVisualizationComponent,
+    CategoryGroupComponent,
     DetailsComponent,
+    DetailsVisResolverComponent,
     DistributionFacetComponent,
     GeojsonMapComponent,
+    LastUpdateTimeComponent,
+    ScorePipePipe,
     SearchComponent,
     SearchResultListComponent,
-    WmsMapComponent,
-    VisualizationSupporterComponent,
-    CategoryGroupComponent,
     VisResolverComponent,
-    ScorePipePipe,
-    LastUpdateTimeComponent,
     VisResolverStarterComponent,
-    DetailsVisResolverComponent,
+    VisualizationSupporterComponent,
+    WmsMapComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -71,17 +72,18 @@ export function initSettings(settingsInitializerService: SettingsInitializerServ
     HelgolandOpenLayersModule,
     HttpClientModule,
     MatButtonModule,
-    MatTableModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatPaginatorModule,
     MatProgressBarModule,
     MatRadioModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatTableModule,
     MatToolbarModule,
     MatTreeModule,
   ],

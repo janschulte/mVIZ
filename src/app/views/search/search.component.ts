@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Dataset } from '../../shared/dataset';
+import { Datasets } from '../../shared/dataset';
 import { SearchService } from './search.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-search',
@@ -10,14 +11,14 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
 
-  public datasets: Dataset[];
+  public datasets: Datasets;
 
   public loading: boolean;
 
   public searchTerm = '';
 
   constructor(
-    private search: SearchService
+    public search: SearchService
   ) { }
 
   public ngOnInit() {
@@ -33,6 +34,10 @@ export class SearchComponent implements OnInit {
 
   public triggerSearch() {
     this.search.setSearchTerm(this.searchTerm);
+  }
+
+  public page(page: PageEvent) {
+    this.search.setPage(page.pageIndex);
   }
 
 }

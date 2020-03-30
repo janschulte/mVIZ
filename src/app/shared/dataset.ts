@@ -39,6 +39,11 @@ export interface Distribution {
     downloadURL: string;
 }
 
+export interface Datasets {
+    count: number;
+    data: Dataset[];
+}
+
 export interface Dataset {
     id: string;
     title: string;

@@ -16,14 +16,17 @@
       </p>
       <app-last-update-time></app-last-update-time>
       <p *ngIf="datasets && !loading">
-        {{datasets.length}} Ergebnis gefunden
+        {{datasets.count}} Ergebnis gefunden
       </p>
       <app-distribution-facet></app-distribution-facet>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content-wrapper">
-      <app-search-result-list [datasets]="datasets"></app-search-result-list>
+    <div class="content-wrapper" *ngIf="datasets && !loading">
+      <mat-paginator [length]="datasets.count" [pageSize]="search.pageSize" [pageIndex]="search.page"
+        (page)="page($event)">
+      </mat-paginator>
+      <app-search-result-list [datasets]="datasets.data"></app-search-result-list>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

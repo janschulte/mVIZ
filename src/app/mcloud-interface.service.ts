@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { SettingsService } from './services/settings.service';
-import { Dataset, DistributionType } from './shared/dataset';
+import { Dataset, Datasets, DistributionType } from './shared/dataset';
 import { Info } from './shared/info';
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +14,12 @@ export class DatasetInterface {
     private settingsSrvc: SettingsService
   ) { }
 
-  public getDatasets(searchTerm: string = '', distributionTypes: DistributionType[] = []): Observable<Dataset[]> {
+  public getDatasets(
+    searchTerm: string,
+    distributionTypes: DistributionType[],
+    limit: number,
+    offset: number
+  ): Observable<Datasets> {
     let params: HttpParams = new HttpParams();
     if (searchTerm) {
       params = params.set('searchTerm', searchTerm);
@@ -22,7 +27,13 @@ export class DatasetInterface {
     if (distributionTypes && distributionTypes.length > 0) {
       params = params.set('distributionType', distributionTypes.join(','));
     }
-    return this.http.get<Dataset[]>(`${this.settingsSrvc.settings.mvizServerUrl}dataset`, { params });
+    if (limit) {
+      params = params.set('limit', limit.toString());
+    }
+    if (offset) {
+      params = params.set('offset', offset.toString());
+    }
+    return this.http.get<Datasets>(`${this.settingsSrvc.settings.mvizServerUrl}dataset`, { params });
   }
 
   public getDataset(id: string): Observable<Dataset> {
