@@ -4,6 +4,7 @@ import { ReplaySubject } from 'rxjs';
 
 import { DatasetInterface } from '../../services/mcloud-interface.service';
 import { Datasets, DistributionType } from '../../shared/dataset';
+import { Info } from '../../shared/info';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class SearchService {
 
   public onResultsChanged: ReplaySubject<Datasets> = new ReplaySubject(1);
   public onUpdateTimeChanged: ReplaySubject<Date> = new ReplaySubject(1);
+  private updateTime: Date;
   public onSearchTermChanged: ReplaySubject<string> = new ReplaySubject(1);
   public onLoading: ReplaySubject<boolean> = new ReplaySubject(1);
   public onDistributionTypesChanged: ReplaySubject<DistributionType[]> = new ReplaySubject(1);
@@ -93,10 +95,12 @@ export class SearchService {
 
   private startSearch() {
     this.onLoading.next(true);
-    this.datasetInterface.getInfo().subscribe(
-      res => this.onUpdateTimeChanged.next(res.lastHarvestTime),
-      error => console.error(error)
-    );
+    if (!this.updateTime) {
+      this.datasetInterface.getInfo().subscribe(
+        res => this.setUpdateTime(res),
+        error => console.error(error)
+      );
+    }
     this.datasetInterface.getDatasets(this.searchTerm, this.distributionTypes, this.pageSize, this.page * this.pageSize).subscribe(
       res => {
         this.onResultsChanged.next(res);
@@ -104,5 +108,10 @@ export class SearchService {
       },
       error => console.error(error)
     );
+  }
+
+  private setUpdateTime(res: Info): void {
+    this.updateTime = res.lastHarvestTime;
+    return this.onUpdateTimeChanged.next(this.updateTime);
   }
 }
