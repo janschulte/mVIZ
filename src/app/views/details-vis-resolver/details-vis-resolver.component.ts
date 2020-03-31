@@ -16,6 +16,10 @@ export class DetailsVisResolverComponent implements OnInit {
 
   public metadata: Metadata;
 
+  public error: string;
+  public loadingDataset: boolean;
+  public loadingMetadata: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private datasetInterface: DatasetInterface,
@@ -23,17 +27,36 @@ export class DetailsVisResolverComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadingDataset = true;
+    this.loadingMetadata = true;
     this.route.paramMap.subscribe(res => {
       const id = res.get('id');
       this.datasetInterface.getDataset(id).subscribe(
-        dataset => this.dataset = dataset,
-        error => console.error(error)
+        dataset => {
+          this.dataset = dataset;
+          this.loadingDataset = false;
+        },
+        error => {
+          this.handleError(error);
+          this.loadingDataset = false;
+        }
       );
       const fileName = decodeURIComponent(res.get('file'));
       this.metadataInterface.getMetadata(id, fileName).subscribe(
-        metadata => this.metadata = metadata,
-        error => console.error(error)
+        metadata => {
+          this.metadata = metadata;
+          this.loadingMetadata = false;
+        },
+        error => {
+          this.handleError(error);
+          this.loadingMetadata = false;
+        }
       );
     });
+  }
+
+  private handleError(error: Error): void {
+    this.error = error.message || error.name || error.stack;
+    console.error(error);
   }
 }

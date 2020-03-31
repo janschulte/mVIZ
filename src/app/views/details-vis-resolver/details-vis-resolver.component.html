@@ -1,4 +1,8 @@
 <mat-sidenav-container class="container">
+    <mat-progress-bar mode="indeterminate" *ngIf="loadingDataset || loadingMetadata"></mat-progress-bar>
+    <mat-card class="error-card" *ngIf="error">
+        <div [innerHTML]="error"></div>
+    </mat-card>
     <div class="details-wrapper" *ngIf="dataset">
         <h1>{{dataset.title}}</h1>
         <div [innerHTML]="dataset.description"></div>

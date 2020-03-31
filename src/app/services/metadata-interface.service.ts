@@ -6,6 +6,10 @@ import { map } from 'rxjs/operators';
 import { SettingsService } from './settings.service';
 
 export interface Metadata {
+  _id: string;
+  cloudID: string;
+  name: string;
+  fileID: string;
   thematicVariables: string[];
   temporalOverlay: string[];
   spatialOverlay: string[];
@@ -26,11 +30,17 @@ export class MetadataInterfaceService {
   ) { }
 
   public getMetadata(mcloudId: string, fileName: string): Observable<Metadata> {
-    fileName = fileName.replace(new RegExp('/', 'g'), ''); // remove '/'
-    fileName = fileName.replace(new RegExp('/?', 'g'), ''); // remove '?'
-    const url = `${this.settings.settings.metadataUrl}dctmeta/${mcloudId}/${fileName}`;
-    return this.http.get(url).pipe(
-      map(res => (res instanceof Array && res.length === 1) ? res[0] : res),
+    const url = `${this.settings.settings.metadataUrl}dctmeta/cloudId/${mcloudId}`;
+    return this.http.get<Metadata[]>('https://cors-anywhere.herokuapp.com/' + url).pipe(
+      map(res => {
+        const md = res.find(e => e.fileID === fileName);
+        if (md) {
+          return md;
+        } else {
+          throw new Error(`Could not find file '${fileName}' in response to cloudID '${mcloudId}'.
+                           See <a href="${url}" target="_blank">here</a>.`);
+        }
+      }),
     );
   }
 }

@@ -6,14 +6,18 @@
         bottom: 0;
         left: 0;
         right: 0;
-    }
 
-    .details-wrapper {
-        padding: 30px;
+        .error-card {
+            margin: 20px;
+        }
 
-        ::ng-deep {
-            a {
-                color: aqua !important;
+        .details-wrapper {
+            padding: 30px;
+
+            ::ng-deep {
+                a {
+                    color: aqua !important;
+                }
             }
         }
     }
