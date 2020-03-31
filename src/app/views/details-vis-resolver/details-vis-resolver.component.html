@@ -1,5 +1,11 @@
 <mat-sidenav-container class="container">
     <mat-progress-bar mode="indeterminate" *ngIf="loadingDataset || loadingMetadata"></mat-progress-bar>
+    <div style="padding: 20px 20px 0px;">
+        <button mat-button [routerLink]="'/details/'+this.id">
+            <mat-icon>arrow_back</mat-icon>
+            Back to dataset
+        </button>
+    </div>
     <mat-card class="error-card" *ngIf="error">
         <div [innerHTML]="error"></div>
     </mat-card>

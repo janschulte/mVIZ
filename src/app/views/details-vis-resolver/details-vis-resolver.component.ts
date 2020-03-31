@@ -16,6 +16,7 @@ export class DetailsVisResolverComponent implements OnInit {
 
   public metadata: Metadata;
 
+  public id: string;
   public error: string;
   public loadingDataset: boolean;
   public loadingMetadata: boolean;
@@ -30,8 +31,8 @@ export class DetailsVisResolverComponent implements OnInit {
     this.loadingDataset = true;
     this.loadingMetadata = true;
     this.route.paramMap.subscribe(res => {
-      const id = res.get('id');
-      this.datasetInterface.getDataset(id).subscribe(
+      this.id = res.get('id');
+      this.datasetInterface.getDataset(this.id).subscribe(
         dataset => {
           this.dataset = dataset;
           this.loadingDataset = false;
@@ -42,7 +43,7 @@ export class DetailsVisResolverComponent implements OnInit {
         }
       );
       const fileName = decodeURIComponent(res.get('file'));
-      this.metadataInterface.getMetadata(id, fileName).subscribe(
+      this.metadataInterface.getMetadata(this.id, fileName).subscribe(
         metadata => {
           this.metadata = metadata;
           this.loadingMetadata = false;
