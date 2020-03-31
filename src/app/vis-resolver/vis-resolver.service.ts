@@ -27,6 +27,7 @@ export class VisResolverService {
 
   public init(metadata: Metadata) {
     this.groups = [];
+    this.calculatedVisualisations = [];
     this.groups.push(new ThematicVariableCG());
     this.groups.push(new TimeOverlappingOfThemesCG());
     this.groups.push(new SpatialOverlappingOfThemesCG());
