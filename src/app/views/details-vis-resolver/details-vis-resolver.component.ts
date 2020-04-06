@@ -20,6 +20,7 @@ export class DetailsVisResolverComponent implements OnInit {
   public error: string;
   public loadingDataset: boolean;
   public loadingMetadata: boolean;
+  public fileName: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,8 +43,8 @@ export class DetailsVisResolverComponent implements OnInit {
           this.loadingDataset = false;
         }
       );
-      const fileName = decodeURIComponent(res.get('file'));
-      this.metadataInterface.getMetadata(this.id, fileName).subscribe(
+      this.fileName = decodeURIComponent(res.get('file'));
+      this.metadataInterface.getMetadata(this.id, this.fileName).subscribe(
         metadata => {
           this.metadata = metadata;
           this.loadingMetadata = false;

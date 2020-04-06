@@ -12,6 +12,10 @@
     <div class="details-wrapper" *ngIf="dataset">
         <h1>{{dataset.title}}</h1>
         <div [innerHTML]="dataset.description"></div>
+        <div class="download">
+            <span>Download the CSV-File: </span>
+            <a href="{{fileName}}">{{fileName}}</a>
+        </div>
         <div *ngIf="metadata">
             <app-vis-resolver [metadata]="metadata"></app-vis-resolver>
         </div>
