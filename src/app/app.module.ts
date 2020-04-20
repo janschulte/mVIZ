@@ -35,7 +35,6 @@ import { SettingsInitializerService } from './services/settings-initializer.serv
 import { DetailsVisResolverComponent } from './views/details-vis-resolver/details-vis-resolver.component';
 import { DetailsComponent } from './views/details/details.component';
 import { SearchComponent } from './views/search/search.component';
-import { VisualizationSupporterComponent } from './views/visualization-supporter/visualization-supporter.component';
 import { CategoryGroupComponent } from './vis-resolver/components/category-group/category-group.component';
 import { VisResolverComponent } from './vis-resolver/components/vis-resolver/vis-resolver.component';
 import { ScorePipePipe } from './vis-resolver/score-pipe.pipe';
@@ -59,7 +58,6 @@ export function initSettings(settingsInitializerService: SettingsInitializerServ
     SearchResultListComponent,
     VisResolverComponent,
     VisResolverStarterComponent,
-    VisualizationSupporterComponent,
     WmsMapComponent,
   ],
   imports: [
