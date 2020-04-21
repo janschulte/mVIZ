@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, Type } from '@angular/core';
-import { ReplaySubject } from 'rxjs';
+import { forkJoin, ReplaySubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { Metadata } from '../services/metadata-interface.service';
 import { DimensionCG } from './categories/dimension/group';
@@ -25,6 +27,10 @@ export class VisResolverService {
 
   private calculatedVisualisations: Visualisation[] = [];
 
+  constructor(
+    private http: HttpClient
+  ) { }
+
   public init(metadata: Metadata) {
     this.groups = [];
     this.calculatedVisualisations = [];
@@ -49,16 +55,7 @@ export class VisResolverService {
       this.setSelection(metadata.timePrimitive, TimePrimitiveCG);
     }
 
-    for (const key in VisualisationKey) {
-      if (key) {
-        this.calculatedVisualisations.push({
-          key,
-          label: VisualisationLabel[key],
-          score: 0
-        });
-      }
-    }
-    this.calculateVisList();
+    this.createVis();
   }
 
   setSelection(metadataParam: string[], categoryGroupType: Type<CategoryGroup>) {
@@ -70,6 +67,43 @@ export class VisResolverService {
     } else {
       console.error(`Doesn't find param '${metadataParam}' in group ${group.constructor.name}`);
     }
+  }
+
+  public loadHtml(key: string) {
+    console.log(key);
+  }
+
+  private createVis() {
+    const req = [];
+    for (const key in VisualisationKey) {
+      if (key) {
+        req.push(
+          this.http.get(`/assets/vis/${key}.html`, { responseType: 'text' }).pipe(tap(
+            res => {
+              this.calculatedVisualisations.push({
+                key,
+                label: VisualisationLabel[key],
+                html: res,
+                score: 0
+              });
+            },
+            error => {
+              this.calculatedVisualisations.push({
+                key,
+                label: VisualisationLabel[key],
+                html: null,
+                score: 0
+              });
+            }
+          ))
+        );
+      }
+    }
+
+    forkJoin(req).subscribe(
+      () => this.calculateVisList(),
+      () => this.calculateVisList()
+    );
   }
 
   public calculateVisList() {

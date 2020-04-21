@@ -35,5 +35,12 @@ tr.vis-row:not(.expanded-row):hover {
 }
 
 .vis-description {
-    padding: 16px;
+    padding: 16px 0px;
+
+    ::ng-deep {
+        .information-image {
+            max-width: 100%;
+        }
+    }
+
 }

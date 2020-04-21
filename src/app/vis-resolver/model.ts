@@ -110,5 +110,6 @@ export interface CategoryGroup {
 export interface Visualisation {
     key: string;
     label: string;
+    html: string;
     score: number;
 }
