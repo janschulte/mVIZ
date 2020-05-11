@@ -11,7 +11,7 @@ export class Nominal extends CategoryEntry {
     HelixIconsOnMap = 1;
     Wakame = 1;
     GeoTime = 1;
-    TrajectoryWall = 1;
+    TrajectoryWall = 0;
     DensityTrajectoryWall = 0;
     TimeVaryingHierarchiesOnMaps = 0;
     ProportionalPictorialSymbol = 0;
@@ -23,7 +23,7 @@ export class Nominal extends CategoryEntry {
     Heatmap = 0;
     HeatPointMap = 0;
     ConnectionMap = 1;
-    Choropleth = 0;
+    Choropleth = 1;
     HeatMapAdditionalMap = 1;
     LineGraph = 0;
     Scatterplot = 0;
@@ -33,7 +33,7 @@ export class Nominal extends CategoryEntry {
     BubbleChart = 1;
     SpiralPlot = 0;
     EventStacks = 0;
-    TemporalFocus = 1;
+    TemporalFocus = 0;
     HeatmapWithoutMap = 0;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

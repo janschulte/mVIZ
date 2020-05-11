@@ -11,7 +11,7 @@ export class Cyclical extends CategoryEntry {
     HelixIconsOnMap = 1;
     Wakame = 0;
     GeoTime = 0;
-    TrajectoryWall = 1;
+    TrajectoryWall = 0;
     DensityTrajectoryWall = 0;
     TimeVaryingHierarchiesOnMaps = 0;
     ProportionalPictorialSymbol = 0;

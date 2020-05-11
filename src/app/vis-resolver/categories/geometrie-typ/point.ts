@@ -17,7 +17,7 @@ export class Point extends CategoryEntry {
     ProportionalPictorialSymbol = 1;
     FlowMap = 1;
     RingMaps = 0;
-    LineMap = 1;
+    LineMap = 0;
     PointMap = 1;
     DotDensityMap = 1;
     Heatmap = 1;

@@ -12,16 +12,16 @@ export class Ts1 extends CategoryEntry {
     Wakame = 0;
     GeoTime = 1;
     TrajectoryWall = 1;
-    DensityTrajectoryWall = 1;
+    DensityTrajectoryWall = 0;
     TimeVaryingHierarchiesOnMaps = 1;
     ProportionalPictorialSymbol = 1;
     FlowMap = 1;
     RingMaps = 1;
     LineMap = 1;
     PointMap = 1;
-    DotDensityMap = 0;
-    Heatmap = 1;
-    HeatPointMap = 1;
+    DotDensityMap = 1;
+    Heatmap = 0;
+    HeatPointMap = 0;
     ConnectionMap = 0;
     Choropleth = 1;
     HeatMapAdditionalMap = 0;
@@ -34,6 +34,6 @@ export class Ts1 extends CategoryEntry {
     SpiralPlot = 1;
     EventStacks = 1;
     TemporalFocus = 0;
-    HeatmapWithoutMap = 0;
+    HeatmapWithoutMap = 1;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

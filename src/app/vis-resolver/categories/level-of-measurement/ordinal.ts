@@ -17,7 +17,7 @@ export class Ordinal extends CategoryEntry {
     ProportionalPictorialSymbol = 1;
     FlowMap = 1;
     RingMaps = 0;
-    LineMap = 0;
+    LineMap = 1;
     PointMap = 1;
     DotDensityMap = 0;
     Heatmap = 0;

@@ -33,7 +33,7 @@ export class Point extends CategoryEntry {
     BubbleChart = 1;
     SpiralPlot = 1;
     EventStacks = 1;
-    TemporalFocus = 1;
+    TemporalFocus = 0;
     HeatmapWithoutMap = 0;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

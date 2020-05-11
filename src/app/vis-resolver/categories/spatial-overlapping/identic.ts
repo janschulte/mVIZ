@@ -15,11 +15,11 @@ export class Identic extends CategoryEntry {
     Wakame = 1;
     GeoTime = 1;
     TrajectoryWall = 1;
-    DensityTrajectoryWall = 1;
+    DensityTrajectoryWall = 0;
     TimeVaryingHierarchiesOnMaps = 0;
     ProportionalPictorialSymbol = 0;
     FlowMap = 0;
-    RingMaps = 1;
+    RingMaps = 0;
     LineMap = 1;
     PointMap = 0;
     DotDensityMap = 0;
@@ -29,13 +29,13 @@ export class Identic extends CategoryEntry {
     Choropleth = 0;
     HeatMapAdditionalMap = 1;
     LineGraph = 1;
-    Scatterplot = 0;
+    Scatterplot = 1;
     Barchart = 0;
     StackedBarchart = 1;
     StackedAreaChart = 1;
     BubbleChart = 1;
-    SpiralPlot = 0;
-    EventStacks = 0;
+    SpiralPlot = 1;
+    EventStacks = 1;
     TemporalFocus = 0;
     HeatmapWithoutMap = 0;
     checkDeactivation(groups: CategoryGroup[]): void {

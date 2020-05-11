@@ -20,7 +20,7 @@ export class Trajectory extends CategoryEntry {
     LineMap = 1;
     PointMap = 0;
     DotDensityMap = 0;
-    Heatmap = 1;
+    Heatmap = 0;
     HeatPointMap = 0;
     ConnectionMap = 1;
     Choropleth = 0;
@@ -34,6 +34,6 @@ export class Trajectory extends CategoryEntry {
     SpiralPlot = 0;
     EventStacks = 0;
     TemporalFocus = 0;
-    HeatmapWithoutMap = 0;
+    HeatmapWithoutMap = 1;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }

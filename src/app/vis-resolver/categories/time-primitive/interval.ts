@@ -12,7 +12,7 @@ export class Interval extends CategoryEntry {
     Wakame = 1;
     GeoTime = 1;
     TrajectoryWall = 1;
-    DensityTrajectoryWall = 0;
+    DensityTrajectoryWall = 1;
     TimeVaryingHierarchiesOnMaps = 0;
     ProportionalPictorialSymbol = 1;
     FlowMap = 1;

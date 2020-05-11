@@ -14,7 +14,7 @@ export class Polygon extends CategoryEntry {
     TrajectoryWall = 0;
     DensityTrajectoryWall = 0;
     TimeVaryingHierarchiesOnMaps = 1;
-    ProportionalPictorialSymbol = 0;
+    ProportionalPictorialSymbol = 1;
     FlowMap = 0;
     RingMaps = 0;
     LineMap = 0;
@@ -32,8 +32,8 @@ export class Polygon extends CategoryEntry {
     StackedAreaChart = 1;
     BubbleChart = 1;
     SpiralPlot = 1;
-    EventStacks = 1;
+    EventStacks = 0;
     TemporalFocus = 0;
-    HeatmapWithoutMap = 1;
+    HeatmapWithoutMap = 0;
     checkDeactivation(groups: CategoryGroup[]): void { }
 }
