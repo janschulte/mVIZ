@@ -16,6 +16,11 @@
             <span>Download the CSV-File: </span>
             <a href="{{fileName}}">{{fileName}}</a>
         </div>
+        <div class="download">
+            <a href="http://mviz-exploration.us-east-1.elasticbeanstalk.com/{{metadata._id}}" target="_blank">
+                View analyzed the CSV-File
+            </a>
+        </div>
         <div *ngIf="metadata">
             <app-vis-resolver [metadata]="metadata"></app-vis-resolver>
         </div>
