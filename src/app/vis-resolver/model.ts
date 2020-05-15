@@ -65,7 +65,6 @@ export enum VisualisationKey {
     SpiralPlot = 'SpiralPlot',
     EventStacks = 'EventStacks',
     TemporalFocus = 'TemporalFocus',
-    HeatmapWithoutMap = 'HeatmapWithoutMap'
 }
 
 export enum VisualisationLabel {
@@ -97,7 +96,6 @@ export enum VisualisationLabel {
     SpiralPlot = 'Spiral Plot',
     EventStacks = 'Event Stacks/Viewer',
     TemporalFocus = 'Temporal focus & Context',
-    HeatmapWithoutMap = 'Heatmap (ohne Karte)'
 }
 
 export interface CategoryGroup {
