@@ -33,7 +33,13 @@ export class MetadataInterfaceService {
     const url = `${this.settings.settings.metadataUrl}dctmeta/cloudId/${mcloudId}`;
     return this.http.get<Metadata[]>('https://cors-anywhere.herokuapp.com/' + url).pipe(
       map(res => {
-        const md = res.find(e => e.fileID === fileName);
+        let md = res.find(e => e.fileID === fileName);
+        // TODO: hack to work with specific dataset: https://mcloud.de/web/guest/suche/-/results/detail/8609402d-5a94-4a77-9308-f8436d8a9098
+        if (!md && fileName.indexOf('_1')) {
+          const temp = fileName.replace('_1', '');
+          md = res.find(e => e.fileID === temp);
+        }
+        // End of hack
         if (md) {
           return md;
         } else {
