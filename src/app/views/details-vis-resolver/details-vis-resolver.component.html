@@ -13,12 +13,17 @@
         <h1>{{dataset.title}}</h1>
         <div [innerHTML]="dataset.description"></div>
         <div class="download">
+            <a href="{{dataset.mfundUrl}}" target="_blank">
+                Show in mCLOUD
+            </a>
+        </div>
+        <div class="download">
             <span>Download the CSV-File: </span>
             <a href="{{fileName}}">{{fileName}}</a>
         </div>
-        <div class="download">
+        <div class="download" *ngIf="metadata">
             <a href="http://mviz-exploration.us-east-1.elasticbeanstalk.com/{{metadata._id}}" target="_blank">
-                View analyzed the CSV-File
+                View analyzed CSV-File
             </a>
         </div>
         <div *ngIf="metadata">
