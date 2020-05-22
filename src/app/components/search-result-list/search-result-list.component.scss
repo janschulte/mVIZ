@@ -2,5 +2,10 @@
     padding: 20px;
     .result-card {
         margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        .spacer {
+            flex: 1;
+        }
     }
 }
