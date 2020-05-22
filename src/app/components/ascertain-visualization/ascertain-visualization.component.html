@@ -1,18 +1,25 @@
-<div>
-  <div *ngIf="distribution.label">{{distribution.label}}</div>
-  <div *ngIf="distribution.accessURL">{{distribution.accessURL}} - {{distribution.type}}</div>
+<div class="label">
+  <mat-chip-list>
+    <mat-chip>
+      {{distribution.type}}
+    </mat-chip>
+  </mat-chip-list>
+  <div class="text" *ngIf="distribution.label">{{distribution.label}}</div>
+  <div class="text" *ngIf="distribution.accessURL">
+    <a href="{{distribution.accessURL}}">{{distribution.accessURL}}</a>
+  </div>
+  <div *ngIf="distribution.type === 'CSV'">
+    <app-vis-resolver-starter [fileName]="distribution.accessURL"></app-vis-resolver-starter>
+  </div>
+</div>
 
-  <span [ngSwitch]="distribution.type">
-    <div *ngSwitchCase="'GEOJSON'">
-      <app-geojson-map [distribution]="distribution"></app-geojson-map>
-    </div>
-    <div *ngSwitchCase="'WMS'">
-      <app-wms-map [distribution]="distribution"></app-wms-map>
-    </div>
-    <div *ngSwitchCase="'CSV'">
-      <app-vis-resolver-starter [fileName]="distribution.accessURL"></app-vis-resolver-starter>
-    </div>
+<div [ngSwitch]="distribution.type" style="padding: 10px 30px;">
+  <div *ngSwitchCase="'GEOJSON'">
+    <app-geojson-map [distribution]="distribution"></app-geojson-map>
+  </div>
+  <div *ngSwitchCase="'WMS'">
+    <app-wms-map [distribution]="distribution"></app-wms-map>
+  </div>
 
-    <span *ngSwitchDefault></span>
-  </span>
+  <span *ngSwitchDefault></span>
 </div>

@@ -21,9 +21,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(res => {
       const id = res.get('id');
-      this.datasetInterface.getDataset(id).subscribe(
-        dataset => this.dataset = dataset
-      );
+      this.datasetInterface.getDataset(id).subscribe(dataset => this.dataset = dataset);
     });
   }
 
