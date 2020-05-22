@@ -44,16 +44,21 @@ export class DetailsVisResolverComponent implements OnInit {
         }
       );
       this.fileName = decodeURIComponent(res.get('file'));
-      this.metadataInterface.getMetadata(this.id, this.fileName).subscribe(
-        metadata => {
-          this.metadata = metadata;
-          this.loadingMetadata = false;
-        },
-        error => {
-          this.handleError(error);
-          this.loadingMetadata = false;
-        }
-      );
+      this.fetchMetadata();
+    });
+  }
+
+  private fetchMetadata() {
+    let metadataId = this.fileName;
+    if (this.fileName.startsWith('https://www.mcloud.de')) {
+      metadataId = this.fileName.substring(21);
+    }
+    this.metadataInterface.getMetadata(this.id, metadataId).subscribe(metadata => {
+      this.metadata = metadata;
+      this.loadingMetadata = false;
+    }, error => {
+      this.handleError(error);
+      this.loadingMetadata = false;
     });
   }
 

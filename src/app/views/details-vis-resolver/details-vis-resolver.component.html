@@ -10,22 +10,21 @@
         <div [innerHTML]="error"></div>
     </mat-card>
     <div class="details-wrapper" *ngIf="dataset">
-        <h1>{{dataset.title}}</h1>
-        <div [innerHTML]="dataset.description"></div>
-        <div class="download">
-            <a href="{{dataset.mfundUrl}}" target="_blank">
-                Show in mCLOUD
+        <h1 class="title">{{dataset.title}}</h1>
+        <div class="description" [innerHTML]="dataset.description"></div>
+
+        <div class="controls">
+            <a mat-stroked-button href="{{dataset.mfundUrl}}" target="_blank">Öffne in der mCloud</a>
+
+            <a mat-stroked-button href="{{fileName}}" target="_blank">Download CSV-File</a>
+
+            <a mat-stroked-button *ngIf="metadata"
+                href="http://mviz-exploration.us-east-1.elasticbeanstalk.com/{{metadata._id}}" target="_blank">
+                Zeige Analyse zur CSV-Datei
             </a>
+
         </div>
-        <div class="download">
-            <span>Download the CSV-File: </span>
-            <a href="{{fileName}}">{{fileName}}</a>
-        </div>
-        <div class="download" *ngIf="metadata">
-            <a href="http://mviz-exploration.us-east-1.elasticbeanstalk.com/{{metadata._id}}" target="_blank">
-                View analyzed CSV-File
-            </a>
-        </div>
+
         <div *ngIf="metadata">
             <app-vis-resolver [metadata]="metadata"></app-vis-resolver>
         </div>
