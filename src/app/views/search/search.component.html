@@ -16,7 +16,7 @@
       </p>
       <app-last-update-time></app-last-update-time>
       <p *ngIf="datasets && !loading">
-        {{datasets.count}} Ergebnis gefunden
+        {{datasets.count}} Ergebnis{{datasets.count > 1 ? 'se' : ''}} gefunden
       </p>
       <app-distribution-facet></app-distribution-facet>
     </div>
