@@ -3,11 +3,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { OlMapService, WmsCapabilitiesService, WMSLayer } from '@helgoland/open-layers';
+import * as ol from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import { TileWMS } from 'ol/source';
 
-import { Distribution } from '../../../shared/dataset';
 import { HttpProxyService } from '../../../services/http-proxy.service';
+import { Distribution } from '../../../shared/dataset';
 
 @Component({
   selector: 'app-wms-map',
@@ -81,11 +82,11 @@ export class WmsMapComponent implements OnInit {
     this.snackBar.open(message, null, { duration: 5000 });
   }
 
-  private addLayer(layer: WMSLayer, map) {
+  private addLayer(layer: WMSLayer, map: ol.Map) {
     const tileLayer = new TileLayer({
       visible: true,
       source: new TileWMS({
-        url: this.distribution.accessURL,
+        url: this.cleanUpUrl(),
         params: {
           Layers: layer.name
         }
@@ -105,6 +106,11 @@ export class WmsMapComponent implements OnInit {
     });
     this.layers.set(layer.name, tileLayer);
     map.addLayer(tileLayer);
+  }
+
+  private cleanUpUrl(): string {
+    const url = this.distribution.accessURL.toLocaleLowerCase();
+    return url.substring(0, url.lastIndexOf('?'));
   }
 
   private loadWMS() {
