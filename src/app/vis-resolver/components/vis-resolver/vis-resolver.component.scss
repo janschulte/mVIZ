@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: row;
 
+    ::ng-deep {
+        a {
+            color: aqua !important;
+        }
+    }
+
     .category-selection,
     .visualisation-results {
         padding: 20px;
