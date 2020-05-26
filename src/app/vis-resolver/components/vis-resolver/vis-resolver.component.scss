@@ -26,7 +26,7 @@ tr.vis-detail-row {
     height: 0;
 }
 
-tr.vis-row:not(.expanded-row):hover {
+tr.vis-row:hover {
     background: #777;
     cursor: pointer;
 }

@@ -18,8 +18,8 @@
 
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let vis" [attr.colspan]="displayedColumns.length">
-        <div class="vis-detail" *ngIf="vis.html" [@detailExpand]="vis == expandedVis ? 'expanded' : 'collapsed'">
-          <!-- vis content goes here-->
+        <div class="vis-detail" *ngIf="vis.html" [@detailExpand]="expandedVis === vis ? 'expanded' : 'collapsed'"
+          [style.height]="expandedVis === vis ? 'unset' : '0 !important'">
           <div class="vis-description" [innerHTML]="vis.html"></div>
         </div>
       </td>
