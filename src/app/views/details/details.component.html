@@ -1,8 +1,10 @@
 <mat-sidenav-container class="container">
   <div class="details-wrapper" *ngIf="dataset">
     <h1>{{dataset.title}}</h1>
-    <div [innerHTML]="dataset.description" style="padding-bottom: 10px;"></div>
-
+    <div [innerHTML]="dataset.description"></div>
+    <a mat-button href="{{dataset.mfundUrl}}" target="_blank" style="margin: 10px;">
+      <img src="assets/mcloud.svg" height="20px">
+    </a>
     <div *ngFor="let distribution of dataset.distributions">
       <app-ascertain-visualization [distribution]="distribution"></app-ascertain-visualization>
     </div>

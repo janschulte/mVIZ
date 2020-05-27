@@ -14,7 +14,9 @@
         <div class="description" [innerHTML]="dataset.description"></div>
 
         <div class="controls">
-            <a mat-stroked-button href="{{dataset.mfundUrl}}" target="_blank">Öffne in der mCloud</a>
+            <a mat-button href="{{dataset.mfundUrl}}" target="_blank">
+                <img src="assets/mcloud.svg" height="20px">
+            </a>
 
             <a mat-stroked-button href="{{fileName}}" target="_blank">Download CSV-File</a>
 

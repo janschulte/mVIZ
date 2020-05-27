@@ -14,7 +14,9 @@
     </mat-card-header>
     <div class="spacer"></div>
     <mat-card-actions style="display: flex;">
-      <button mat-button (click)="openInMFund(ds.mfundUrl)">In der mCloud</button>
+      <button mat-button (click)="openInMFund(ds.mfundUrl)">
+        <img src="assets/mcloud.svg" height="20px">
+      </button>
       <div class="spacer"></div>
       <button mat-button (click)="showDetails(ds.id, false)" (auxclick)="showDetails(ds.id, true)">Zu den Details</button>
     </mat-card-actions>
