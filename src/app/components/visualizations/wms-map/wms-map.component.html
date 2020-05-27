@@ -5,7 +5,7 @@
   <div class="map">
     <n52-ol-map [mapId]="mapId" [showZoomControl]="false" [lon]="10.5" [lat]="51.2" [zoom]="6" [projection]="projection"
       [showAttributionControl]="false">
-      <n52-ol-mouse-position [projection]="projection"></n52-ol-mouse-position>
+      <!-- <n52-ol-mouse-position [projection]="projection"></n52-ol-mouse-position> -->
     </n52-ol-map>
     <mat-progress-bar *ngIf="progress != 100" mode="determinate" [value]="progress" color="warn"> </mat-progress-bar>
   </div>
